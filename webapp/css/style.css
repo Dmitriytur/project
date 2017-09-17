@@ -1,0 +1,26 @@
+
+.v-space {
+	height: 50px;
+}
+
+.img-preview{
+	height: 240px!important;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+.thumbnail-bold {
+	font-weight: bold;
+}
+
+.product-preview-box{
+	margin-bottom: 10px;
+}
+
+.product-preview{
+	color: rgb(44, 62, 80);
+	margin: 0 5px 5px 5px;
+}
+
+.input-border{
+	margin: 5px 0 15px 0;
+}
