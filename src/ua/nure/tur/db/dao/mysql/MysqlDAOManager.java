@@ -2,7 +2,6 @@ package ua.nure.tur.db.dao.mysql;
 
 import ua.nure.tur.db.dao.*;
 import ua.nure.tur.exceptions.DataAccessException;
-import ua.nure.tur.utils.ClosingUtils;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -81,7 +80,7 @@ public class MysqlDAOManager implements DAOManager {
     }
 
     @Override
-    public void rollback()  {
+    public void rollback() {
         try {
             connection.rollback();
             connection.setAutoCommit(true);

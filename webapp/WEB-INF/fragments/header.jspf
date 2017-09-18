@@ -18,10 +18,16 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-                <li><a href="/page/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="/page/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="/page/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                <c:if test="${user != null}">
+                    <li><a href="/page/profile"><span class="glyphicon glyphicon-user"></span> Your profile</a></li>
+                    <li><a href="/page/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </c:if>
+                <c:if test="${user == null}">
+                    <li><a href="/page/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="/page/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </c:if>
+
             </ul>
         </div>
     </div>
