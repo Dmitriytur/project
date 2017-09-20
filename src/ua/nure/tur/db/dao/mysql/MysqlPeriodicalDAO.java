@@ -4,10 +4,7 @@ import ua.nure.tur.db.dao.PeriodicalDAO;
 import ua.nure.tur.entities.Periodical;
 import ua.nure.tur.exceptions.DataAccessException;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +12,10 @@ import static ua.nure.tur.utils.ClosingUtils.close;
 
 public class MysqlPeriodicalDAO implements PeriodicalDAO {
 
-    private static final String SQL_GET_ALL_ITEMS = "select * from periodicals, categories where periodicals.category_id = categories.id";
+    private static final String GET_ALL_ITEMS = "select * from periodicals, categories where periodicals.category_id = categories.id";
+
+    private static final String GET_BY_ID  = "select * from periodicals, categories where periodicals.category_id = categories.id and " +
+            "periodicals.id=?";
 
     private Connection connection;
 
@@ -30,7 +30,7 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
         ResultSet resultSet = null;
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery(SQL_GET_ALL_ITEMS);
+            resultSet = statement.executeQuery(GET_ALL_ITEMS);
             while (resultSet.next()) {
                 periodicals.add(extractPeriodical(resultSet));
             }
@@ -42,6 +42,29 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
             close(statement);
         }
         return periodicals;
+    }
+
+    @Override
+    public Periodical getById(int id) throws DataAccessException {
+        Periodical periodical = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(GET_BY_ID);
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()){
+                periodical = extractPeriodical(resultSet);
+            }
+        } catch (SQLException e) {
+            //TODO log exception
+            throw new DataAccessException("Cennot get periodical by id form database", e);
+        } finally {
+            close(resultSet);
+            close(statement);
+        }
+        return periodical;
+
     }
 
     private Periodical extractPeriodical(ResultSet resultSet) throws SQLException {

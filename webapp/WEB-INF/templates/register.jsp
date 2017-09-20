@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="title" value="Login"/>
+<c:set var="title" value="Register"/>
 <%@ include file="/WEB-INF/fragments/top.jspf" %>
 
 <div class="container">

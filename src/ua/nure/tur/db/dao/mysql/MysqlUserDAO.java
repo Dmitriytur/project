@@ -5,7 +5,6 @@ import ua.nure.tur.entities.Role;
 import ua.nure.tur.entities.User;
 import ua.nure.tur.entities.UserProfile;
 import ua.nure.tur.exceptions.DataAccessException;
-import ua.nure.tur.utils.ClosingUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,6 +32,7 @@ public class MysqlUserDAO implements UserDAO {
         user.setPassword(resultSet.getString("password"));
         user.setBalance(resultSet.getDouble("balance"));
         user.setBanned(resultSet.getBoolean("banned"));
+        user.setLang(resultSet.getString("lang"));
         user.setRole(Role.getRole(resultSet.getInt("role_id")));
         return user;
     }

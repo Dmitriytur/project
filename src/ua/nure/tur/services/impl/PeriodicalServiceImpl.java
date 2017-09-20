@@ -31,4 +31,17 @@ public class PeriodicalServiceImpl implements PeriodicalService {
             close(daoManager);
         }
     }
+
+    @Override
+    public Periodical getById(int id) throws ServiceException {
+        DAOManager daoManager = null;
+        try {
+            daoManager = daoManagerFactory.getDaoManager();
+            return daoManager.getPeriodicalDAO().getById(id);
+        } catch (DataAccessException e) {
+            throw new ServiceException("Cannot get periodical by id", e);
+        } finally {
+            close(daoManager);
+        }
+    }
 }

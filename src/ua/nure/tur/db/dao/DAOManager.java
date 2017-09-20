@@ -17,5 +17,4 @@ public interface DAOManager extends AutoCloseable {
     void commit() throws DataAccessException;
 
     void rollback();
-
 }

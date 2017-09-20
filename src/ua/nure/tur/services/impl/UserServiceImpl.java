@@ -6,7 +6,6 @@ import ua.nure.tur.entities.User;
 import ua.nure.tur.exceptions.DataAccessException;
 import ua.nure.tur.exceptions.ServiceException;
 import ua.nure.tur.services.UserService;
-import ua.nure.tur.utils.ClosingUtils;
 
 import static ua.nure.tur.utils.ClosingUtils.close;
 

@@ -12,6 +12,8 @@ public class User extends Entity {
 
     private boolean banned;
 
+    private String lang;
+
     private Role role;
 
     public String getUserName() {
@@ -46,6 +48,14 @@ public class User extends Entity {
         this.banned = banned;
     }
 
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
     public Role getRole() {
         return role;
     }
@@ -53,4 +63,6 @@ public class User extends Entity {
     public void setRole(Role role) {
         this.role = role;
     }
+
+
 }

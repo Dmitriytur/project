@@ -8,4 +8,6 @@ import java.util.List;
 public interface PeriodicalDAO {
 
     List<Periodical> findAll() throws DataAccessException;
+
+    Periodical getById(int id) throws DataAccessException;
 }

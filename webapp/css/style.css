@@ -24,3 +24,37 @@
 .input-border{
 	margin: 5px 0 15px 0;
 }
+.rating-stars{
+	color: #ee8b2d !important;
+}
+
+a.thumbnail:hover {
+	text-decoration: none !important;
+	color: inherit;
+}
+
+.primary-image{
+	width: 400px;
+}
+
+.product-thumbnails{
+	padding-top: 10px;
+	width: 400px;
+}
+
+.thumb{
+	display: inline-block;
+	padding-right: 1px;
+	width: 75px;
+}
+
+.thumb.active{
+	border:1px solid #0481c0;
+	padding: 2px;
+	width: 81px;
+}
+
+.big-stars{
+	font-size: 25px;
+	margin: 10px 0 10px 0;
+}

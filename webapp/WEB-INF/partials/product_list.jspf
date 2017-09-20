@@ -1,0 +1,25 @@
+<%@ taglib uri="/WEB-INF/ratingstars.tld" prefix="m" %>
+<c:forEach items="${periodicalsList}" var="item" varStatus="loop">
+    <c:if test="${loop.index % 4 == 0}">
+        <div class="row"></c:if>
+        <div class="col-md-3 product-preview-box">
+
+            <a href="/page/magazines?item=${item.id}" class="thumbnail text-center product-preview">
+                <img src="${item.image}" class="img-preview" alt="magazine">
+                <p>
+                    <span class="thumbnail-bold">Name:
+                    </span>${item.name}</p>
+                <p>
+                    <span class="thumbnail-bold">Price:
+                    </span>$${item.price}</p>
+                <p>
+                    <div class="rating-stars">
+                        <m:ratingStars rating="${item.rating}" />
+                    </div>
+
+                </p>
+
+            </a>
+        </div>
+        <c:if test="${loop.index % 4 == 3}"></div></c:if>
+</c:forEach>
