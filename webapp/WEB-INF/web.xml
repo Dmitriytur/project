@@ -35,13 +35,8 @@
         </init-param>
 
         <init-param>
-            <param-name>clientAccess</param-name>
-            <param-value>123</param-value>
-        </init-param>
-
-        <init-param>
             <param-name>adminAccess</param-name>
-            <param-value>456</param-value>
+            <param-value></param-value>
         </init-param>
 
     </filter>

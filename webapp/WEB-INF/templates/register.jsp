@@ -7,33 +7,34 @@
         <div class="panel panel-default">
             <div class="panel-heading">Sign up</div>
             <div class="panel-body">
-
+                <div id="errorMessage" class="alert alert-dismissible alert-warning" style="display: none">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <p>errorMessage</p>
+                </div>
                 <div class="form-group">
 
-
-                    <label class="control-label">Username</label>
-                    <div class="input-group input-border">
-                        <span class="input-group-addon glyphicon glyphicon-user"></span>
+                    <div id="username" class="form-group">
+                        <label class="control-label">Username</label>
                         <input type="text" class="form-control" placeholder="Username">
+                        <span class="help-block"></span>
                     </div>
 
-                    <label class="control-label">Email</label>
-                    <div class="input-group input-border">
-                        <span class="input-group-addon glyphicon glyphicon-envelope"></span>
-                        <input type="email" class="form-control"  placeholder="Email">
+                    <div id="email" class="form-group">
+                        <label class="control-label">Email</label>
+                        <input type="text" class="form-control" placeholder="Email">
+                        <span class="help-block"></span>
                     </div>
 
-
-                    <label class="control-label">Password</label>
-                    <div class="input-group input-border">
-                        <span class="input-group-addon glyphicon glyphicon-lock"></span>
-                        <input type="password" class="form-control"  placeholder="Password">
+                    <div id="password" class="form-group">
+                        <label class="control-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Password">
+                        <span class="help-block"></span>
                     </div>
 
-                    <label class="control-label">Confirm password</label>
-                    <div class="input-group input-border">
-                        <span class="input-group-addon glyphicon glyphicon-lock"></span>
-                        <input type="password" class="form-control"  placeholder="Confirm password">
+                    <div id="confirmPassword" class="form-group">
+                        <label class="control-label">Confirm password</label>
+                        <input type="password" class="form-control" placeholder="Confirm password">
+                        <span class="help-block"></span>
                     </div>
 
 

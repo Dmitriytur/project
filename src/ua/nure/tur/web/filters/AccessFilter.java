@@ -18,7 +18,8 @@ public class AccessFilter implements Filter {
 
     private Set<String> authorizedAccess;
 
-    private Map<Role, Set<String>> accessMap;
+    private Set<String> adminAccess;
+
 
     private Pattern urlPattern;
 
@@ -27,17 +28,10 @@ public class AccessFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         authorizedAccess = toSet(filterConfig.getInitParameter("authorizedAccess"));
-
-        accessMap = new HashMap<>();
-        Set<String> clientAccess = toSet(filterConfig.getInitParameter("clientAccess"));
-        Set<String> adminAccess = toSet(filterConfig.getInitParameter("adminAccess"));
-
-        accessMap.put(Role.CLIENT, clientAccess);
-        accessMap.put(Role.ADMIN, adminAccess);
+        adminAccess = toSet(filterConfig.getInitParameter("adminAccess"));
 
         underControl = new HashSet<>();
         underControl.addAll(authorizedAccess);
-        underControl.addAll(clientAccess);
         underControl.addAll(adminAccess);
 
         urlPattern = Pattern.compile(URL_REGEXP);
@@ -47,8 +41,8 @@ public class AccessFilter implements Filter {
         return new HashSet<>(Arrays.asList(parameter.split(" ")));
     }
 
-    private boolean isUnderControl(String resource){
-        return underControl.contains(resource);
+    private boolean isNotUnderControl(String resource){
+        return !underControl.contains(resource);
     }
 
     private boolean accessAllowed(String resource, HttpSession session){
@@ -57,7 +51,7 @@ public class AccessFilter implements Filter {
             return false;
         }
         return authorizedAccess.contains(resource) ||
-                accessMap.get(user.getRole()).contains(resource);
+                (user.getRole() == Role.ADMIN && adminAccess.contains(resource));
 
     }
 
@@ -68,7 +62,7 @@ public class AccessFilter implements Filter {
         String resource;
         if (matcher.find()){
             resource = matcher.group();
-            if (!isUnderControl(resource) || accessAllowed(resource, request.getSession())){
+            if (isNotUnderControl(resource) || accessAllowed(resource, request.getSession())){
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
                 ((HttpServletResponse)servletResponse).setStatus(401);

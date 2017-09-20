@@ -12,10 +12,9 @@ import static ua.nure.tur.utils.ClosingUtils.close;
 
 public class MysqlPeriodicalDAO implements PeriodicalDAO {
 
-    private static final String GET_ALL_ITEMS = "select * from periodicals, categories where periodicals.category_id = categories.id";
+    private static final String GET_ALL_ITEMS = "select * from periodicals";
 
-    private static final String GET_BY_ID  = "select * from periodicals, categories where periodicals.category_id = categories.id and " +
-            "periodicals.id=?";
+    private static final String GET_BY_ID  = "select * from periodicals where id=?";
 
     private Connection connection;
 
@@ -58,7 +57,7 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
             }
         } catch (SQLException e) {
             //TODO log exception
-            throw new DataAccessException("Cennot get periodical by id form database", e);
+            throw new DataAccessException("Cannot get periodical by id form database", e);
         } finally {
             close(resultSet);
             close(statement);
@@ -67,16 +66,17 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
 
     }
 
+
     private Periodical extractPeriodical(ResultSet resultSet) throws SQLException {
         Periodical periodical = new Periodical();
-        periodical.setId(resultSet.getInt("periodicals.id"));
-        periodical.setName(resultSet.getString("periodicals.name"));
+        periodical.setId(resultSet.getInt("id"));
+        periodical.setName(resultSet.getString("name"));
         periodical.setDescription(resultSet.getString("description"));
         periodical.setPrice(resultSet.getDouble("price"));
         periodical.setPeriodicity(resultSet.getInt("periodicity"));
-        periodical.setImage(resultSet.getString("image"));
+        periodical.setImages(resultSet.getInt("images"));
         periodical.setRating(resultSet.getDouble("rating"));
-        periodical.setCategory(resultSet.getString("categories.name"));
+        periodical.setCategoryId(resultSet.getInt("category_id"));
         return periodical;
     }
 }

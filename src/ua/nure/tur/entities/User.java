@@ -12,9 +12,13 @@ public class User extends Entity {
 
     private boolean banned;
 
+    private String email;
+
     private String lang;
 
     private Role role;
+
+    private Integer userProfileId;
 
     public String getUserName() {
         return userName;
@@ -48,6 +52,14 @@ public class User extends Entity {
         this.banned = banned;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getLang() {
         return lang;
     }
@@ -64,5 +76,11 @@ public class User extends Entity {
         this.role = role;
     }
 
+    public Integer getUserProfileId() {
+        return userProfileId;
+    }
 
+    public void setUserProfileId(Integer userProfileId) {
+        this.userProfileId = userProfileId;
+    }
 }

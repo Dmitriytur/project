@@ -24,6 +24,8 @@
 .input-border{
 	margin: 5px 0 15px 0;
 }
+
+
 .rating-stars{
 	color: #ee8b2d !important;
 }
@@ -56,5 +58,8 @@ a.thumbnail:hover {
 
 .big-stars{
 	font-size: 25px;
-	margin: 10px 0 10px 0;
+}
+
+.prod-descr{
+	margin: 20px 0 20px 0;
 }

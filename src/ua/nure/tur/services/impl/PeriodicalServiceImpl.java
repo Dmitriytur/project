@@ -44,4 +44,5 @@ public class PeriodicalServiceImpl implements PeriodicalService {
             close(daoManager);
         }
     }
+
 }

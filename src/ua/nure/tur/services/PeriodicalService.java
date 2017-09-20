@@ -10,4 +10,5 @@ public interface PeriodicalService {
     List<Periodical> findAll() throws ServiceException;
 
     Periodical getById(int id) throws ServiceException;
+
 }

@@ -12,11 +12,11 @@ public class Periodical extends Entity {
 
     private int periodicity;
 
-    private String image;
+    private int images;
 
     private double rating;
 
-    private String category;
+    private Integer categoryId;
 
     public String getName() {
         return name;
@@ -50,12 +50,12 @@ public class Periodical extends Entity {
         this.periodicity = periodicity;
     }
 
-    public String getImage() {
-        return image;
+    public int getImages() {
+        return images;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImages(int images) {
+        this.images = images;
     }
 
     public double getRating() {
@@ -66,11 +66,11 @@ public class Periodical extends Entity {
         this.rating = rating;
     }
 
-    public String getCategory() {
-        return category;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 }
