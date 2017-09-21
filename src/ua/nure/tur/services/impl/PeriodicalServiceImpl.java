@@ -150,7 +150,7 @@ public class PeriodicalServiceImpl implements PeriodicalService {
 
         try {
             daoManager = daoManagerFactory.getDaoManager();
-            return  daoManager.getPeriodicalDAO().findAllCategories();
+            return daoManager.getPeriodicalDAO().findAllCategories();
         } catch (DataAccessException e) {
             throw new ServiceException("Cannot get all categories", e);
         } finally {

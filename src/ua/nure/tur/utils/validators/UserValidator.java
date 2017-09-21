@@ -24,7 +24,7 @@ public final class UserValidator {
         return true;
     }
 
-    public static boolean validatePassword(String password){
+    public static boolean validatePassword(String password) {
         return password != null && password.matches(PASSWORD_REGEXP);
     }
 }

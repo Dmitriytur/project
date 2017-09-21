@@ -52,7 +52,7 @@
                 </div>
 
 
-                <button  id="searchBtn" type="button" class="btn btn-success" style="margin-left:20px">Search</button>
+                <button  id="searchBtn" type="button" class="btn btn-success" >Search</button>
             </div>
         </div></div>
     </div>

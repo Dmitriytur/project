@@ -1,6 +1,6 @@
 package ua.nure.tur.entities;
 
-public class UserProfile extends Entity{
+public class UserProfile extends Entity {
 
     private String firstName;
 

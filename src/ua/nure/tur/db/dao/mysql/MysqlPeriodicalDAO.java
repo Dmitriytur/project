@@ -111,7 +111,7 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
             statement = connection.prepareStatement(query);
             searchSettings.prepareStatement(statement);
             resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 return resultSet.getInt(1);
             }
         } catch (SQLException e) {

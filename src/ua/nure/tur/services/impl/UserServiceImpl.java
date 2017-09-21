@@ -10,7 +10,6 @@ import ua.nure.tur.exceptions.ServiceException;
 import ua.nure.tur.services.ServiceResult;
 import ua.nure.tur.services.ServiceResultStatus;
 import ua.nure.tur.services.UserService;
-import ua.nure.tur.utils.Pages;
 
 import static ua.nure.tur.utils.ClosingUtils.close;
 
@@ -92,7 +91,7 @@ public class UserServiceImpl implements UserService {
         try {
             daoManager = daoManagerFactory.getDaoManager();
             User user = daoManager.getUserDao().findById(userId);
-            if (user.getPassword().equals(oldPassword)){
+            if (user.getPassword().equals(oldPassword)) {
                 user.setPassword(password);
                 daoManager.getUserDao().update(user);
             } else {
@@ -129,11 +128,10 @@ public class UserServiceImpl implements UserService {
             daoManager = daoManagerFactory.getDaoManager();
             daoManager.startTransaction();
             User user = daoManager.getUserDao().findById(userId);
-            System.out.println(user);
-            if (user.getUserProfileId() == null){
+            if (user.getUserProfileId() == null || user.getUserProfileId() == 0) {
                 daoManager.getUserDao().addUserProfile(profile);
                 user.setUserProfileId(profile.getId());
-                System.out.println(user);
+                daoManager.getUserDao().update(user);
             } else {
                 profile.setId(user.getUserProfileId());
                 daoManager.getUserDao().updateUserProfile(profile);
@@ -144,6 +142,27 @@ public class UserServiceImpl implements UserService {
                 daoManager.rollback();
             }
             throw new ServiceException("Cannot set profile for user", e);
+        } finally {
+            close(daoManager);
+        }
+    }
+
+    @Override
+    public void changeBalanceForUser(Long userId, double delta) throws ServiceException {
+        DAOManager daoManager = null;
+
+        try {
+            daoManager = daoManagerFactory.getDaoManager();
+            daoManager.startTransaction();
+            User user = daoManager.getUserDao().findById(userId);
+            user.setBalance(user.getBalance() + delta);
+            daoManager.getUserDao().update(user);
+            daoManager.commit();
+        } catch (DataAccessException e) {
+            if (daoManager != null) {
+                daoManager.rollback();
+            }
+            throw new ServiceException("Cannot change balance for user", e);
         } finally {
             close(daoManager);
         }

@@ -17,4 +17,6 @@ public interface UserService {
     UserProfile getUserProfileForUser(Long userId) throws ServiceException;
 
     void setProfile(Long userId, UserProfile profile) throws ServiceException;
+
+    void changeBalanceForUser(Long userId, double delta) throws ServiceException;
 }

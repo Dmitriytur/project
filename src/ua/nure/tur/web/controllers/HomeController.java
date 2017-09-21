@@ -23,7 +23,7 @@ public class HomeController extends HttpServlet {
 
     private List<String> categoriesToShow;
 
-    private  int limitPeriodicals;
+    private int limitPeriodicals;
 
     private PeriodicalService periodicalService;
 

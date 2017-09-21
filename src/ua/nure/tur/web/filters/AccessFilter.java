@@ -1,7 +1,6 @@
 package ua.nure.tur.web.filters;
 
 import ua.nure.tur.entities.Role;
-import ua.nure.tur.entities.User;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -62,7 +61,7 @@ public class AccessFilter implements Filter {
             if (isNotUnderControl(resource) || accessAllowed(resource, request.getSession())) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
-                ((HttpServletResponse) servletResponse).setStatus(401);
+                ((HttpServletResponse) servletResponse).sendRedirect("/page/login");
             }
         }
 

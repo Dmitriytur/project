@@ -32,7 +32,6 @@ public class ProductDetailsController extends HttpServlet {
         try {
             periodicalId = Integer.parseInt(req.getParameter("item"));
             PeriodicalDetailsViewModel viewModel = periodicalService.getPeriodicalDetails(periodicalId, 4);
-            ;
             req.setAttribute("model", viewModel);
             req.getRequestDispatcher(Pages.PAGE_PREFIX + "magazine_details.jsp").forward(req, resp);
         } catch (NumberFormatException e) {

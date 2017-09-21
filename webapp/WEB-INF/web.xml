@@ -22,7 +22,7 @@
 
     <context-param>
         <param-name>categoriesToShowAtHomePage</param-name>
-        <param-value>News & Politic;Music;Education;Health</param-value>
+        <param-value>News &#038; Politics;Art &#038; Photography;Music</param-value>
     </context-param>
 
 
@@ -56,7 +56,7 @@
 
         <init-param>
             <param-name>authorizedAccess</param-name>
-            <param-value>profile</param-value>
+            <param-value>profile subscribe</param-value>
         </init-param>
 
         <init-param>

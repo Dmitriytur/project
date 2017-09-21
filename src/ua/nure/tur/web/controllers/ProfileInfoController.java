@@ -31,7 +31,7 @@ public class ProfileInfoController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         String errorMessage = (String) session.getAttribute("errorMessage");
-        String message =(String) session.getAttribute("message");
+        String message = (String) session.getAttribute("message");
 
         req.setAttribute("errorMessage", errorMessage);
         req.setAttribute("message", message);
@@ -51,6 +51,7 @@ public class ProfileInfoController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
         UserProfile profile = new UserProfile();
         profile.setFirstName(req.getParameter("firstName"));
         profile.setLastName(req.getParameter("lastName"));
@@ -58,17 +59,18 @@ public class ProfileInfoController extends HttpServlet {
         profile.setAddress(req.getParameter("address"));
         profile.setZipCode(req.getParameter("zip"));
 
-        if (UserProfileValidator.validateProfile(profile)){
+        if (UserProfileValidator.validateProfile(profile)) {
             Long userId = (Long) req.getSession().getAttribute("userId");
             try {
                 userService.setProfile(userId, profile);
+                session.setAttribute("message", "Profile was updated");
             } catch (ServiceException e) {
-                req.getSession().setAttribute("errorMessage", "Internal error");
+                session.setAttribute("errorMessage", "Internal error");
             }
 
-            req.getSession().setAttribute("message", "Profile was updated");
+
         } else {
-            req.getSession().setAttribute("errorMessage", "Incorrect input");
+            session.setAttribute("errorMessage", "Incorrect input");
         }
         resp.sendRedirect("/page/profile/settings");
 

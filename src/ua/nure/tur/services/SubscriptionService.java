@@ -8,4 +8,6 @@ import java.util.List;
 public interface SubscriptionService {
 
     List<UserSubscriptionViewModel> getUserSubscriptions(Long userId) throws ServiceException;
+
+    ServiceResult<String> subscribeUserToPeriodical(Long userId, long periodicalId, int period) throws ServiceException;
 }

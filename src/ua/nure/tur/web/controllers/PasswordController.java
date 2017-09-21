@@ -37,10 +37,10 @@ public class PasswordController extends HttpServlet {
         String oldPassword = req.getParameter("oldPassword");
         String password = req.getParameter("password");
         Long userId = (Long) req.getSession().getAttribute("userId");
-        if (UserValidator.validatePassword(password)){
+        if (UserValidator.validatePassword(password)) {
             try {
                 ServiceResult<String> result = userService.updateUserPassword(userId, oldPassword, password);
-                if (result.getStatus() == ServiceResultStatus.SUCCESS){
+                if (result.getStatus() == ServiceResultStatus.SUCCESS) {
                     resp.getWriter().print(result.getMessage());
                 } else {
                     resp.setStatus(400);

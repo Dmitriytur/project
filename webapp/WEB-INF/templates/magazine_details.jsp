@@ -35,7 +35,15 @@
                     <h3 class="panel-title">Subscription</h3>
                 </div>
                 <div class="panel-body">
-                    Panel content
+                    <h4>Price: $${model.periodical.price} per edition</h4>
+                    <form class="form-inline" action="/page/subscribe">
+                        <div class="form-group">
+                            <label class="filter-col" >Period (months):</label>
+                            <input name="period" type="number" min="1" max="12" step="1" class="form-control" value="1">
+                        </div>
+                        <input type="hidden" name="periodicalId" value="${model.periodical.id}">
+                        <button type="submit" class="btn btn-success"></i>Subscribe</button>
+                    </from>
                 </div>
             </div>
         </div>

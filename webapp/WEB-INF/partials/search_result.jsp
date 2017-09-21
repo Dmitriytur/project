@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/WEB-INF/partials/product_list.jspf" %>
 
+<c:if test="${pagination.lastPage > 1}">
 <div class="row text-center">
     <ul class="pagination">
         <c:if test="${pagination.prevActive}">
@@ -25,3 +26,4 @@
         </c:if>
     </ul>
 </div>
+</c:if>

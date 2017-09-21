@@ -23,15 +23,13 @@ public class PaginationViewModel {
         nextActive = currentPage < maxPage;
 
 
-
-
         firstPage = currentPage - 2;
-        if (firstPage < 1){
+        if (firstPage < 1) {
             firstPage = 1;
         }
 
         lastPage = firstPage + (PAGES_NUMBER - 1);
-        if (lastPage > maxPage){
+        if (lastPage > maxPage) {
             lastPage = maxPage;
         }
 

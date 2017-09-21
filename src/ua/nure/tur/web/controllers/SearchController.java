@@ -1,10 +1,8 @@
 package ua.nure.tur.web.controllers;
 
-import ua.nure.tur.entities.Periodical;
 import ua.nure.tur.exceptions.ServiceException;
 import ua.nure.tur.services.PeriodicalService;
 import ua.nure.tur.services.ServiceFactory;
-import ua.nure.tur.utils.Pages;
 import ua.nure.tur.viewmodels.PaginationViewModel;
 import ua.nure.tur.viewmodels.SearchResultViewModel;
 
@@ -17,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @WebServlet("/page/searchPartial")
@@ -49,7 +46,6 @@ public class SearchController extends HttpServlet {
         String order = req.getParameter("order");
         String limitParameter = req.getParameter("limit");
         String pageParameter = req.getParameter("page");
-
 
 
         if (!allowedColumnsToSort.contains(sortBy)) {
@@ -84,7 +80,7 @@ public class SearchController extends HttpServlet {
             req.setAttribute("periodicalsList", result.getPeriodicals());
             PaginationViewModel model = new PaginationViewModel(page, result.getAmount(), limit);
 
-            req.setAttribute("pagination",model);
+            req.setAttribute("pagination", model);
             req.getRequestDispatcher("/WEB-INF/partials/search_result.jsp").forward(req, resp);
         } catch (ServiceException e) {
             resp.setStatus(500);

@@ -22,7 +22,7 @@ public class MysqlUserDAO implements UserDAO {
 
     private static final String FIND_USER_BY_ID = "select * from users where id=?";
 
-    private static final String UPDATE_USER = "update users set password=?, user_profile_id=?, lang=? where id=?";
+    private static final String UPDATE_USER = "update users set password=?,  user_profile_id=?, lang=?, balance=?, banned=? where id=?";
 
     private static final String SELECT_USER_PROFILE = "select * from user_profiles where id=?";
 
@@ -144,6 +144,8 @@ public class MysqlUserDAO implements UserDAO {
             statement.setString(i++, user.getPassword());
             statement.setLong(i++, user.getUserProfileId());
             statement.setString(i++, user.getLang());
+            statement.setDouble(i++, user.getBalance());
+            statement.setBoolean(i++, user.isBanned());
             statement.setLong(i, user.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -164,7 +166,7 @@ public class MysqlUserDAO implements UserDAO {
             statement = connection.prepareStatement(SELECT_USER_PROFILE);
             statement.setLong(1, userId);
             resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 return extractUserProfile(resultSet);
             }
         } catch (SQLException e) {

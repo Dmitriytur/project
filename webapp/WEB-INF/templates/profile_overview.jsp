@@ -23,7 +23,7 @@
              <li class="list-group-item"><i class="fa fa-money"></i> Balance: $${user.balance}
              </li>
              <div class="v-space-small"></div>
-            <a href="/page/profile/balance" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Repelish balance</a>
+            <a href="/page/profile/balance" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Add balance</a>
             <a href="/page/profile/password" class="btn btn-success"><i class="fa fa-lock"></i> Change password</a>
           </ul>
 
