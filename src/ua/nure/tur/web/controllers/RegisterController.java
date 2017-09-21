@@ -1,9 +1,10 @@
 package ua.nure.tur.web.controllers;
 
 import ua.nure.tur.entities.User;
-import ua.nure.tur.exceptions.RegistrationException;
 import ua.nure.tur.exceptions.ServiceException;
 import ua.nure.tur.services.ServiceFactory;
+import ua.nure.tur.services.ServiceResult;
+import ua.nure.tur.services.ServiceResultStatus;
 import ua.nure.tur.services.UserService;
 import ua.nure.tur.utils.Pages;
 import ua.nure.tur.utils.validators.UserValidator;
@@ -37,15 +38,18 @@ public class RegisterController extends HttpServlet {
         user.setUserName(req.getParameter("username"));
         user.setPassword(req.getParameter("password"));
         user.setEmail(req.getParameter("email"));
-        if (UserValidator.validateUser(user)){
+        if (UserValidator.validateUser(user)) {
             try {
-                userService.registerClient(user);
-            } catch (ServiceException e){
+                ServiceResult<User> serviceResult = userService.registerClient(user);
+                if (serviceResult.getStatus() == ServiceResultStatus.SUCCESS) {
+                    req.getSession().setAttribute("user", serviceResult.getData());
+                } else {
+                    resp.setStatus(400);
+                    resp.getWriter().print(serviceResult.getMessage());
+                }
+            } catch (ServiceException e) {
                 resp.setStatus(500);
                 resp.getWriter().print("Internal server error");
-            } catch (RegistrationException e){
-                resp.setStatus(400);
-                resp.getWriter().print(e.getMessage());
             }
 
         } else {

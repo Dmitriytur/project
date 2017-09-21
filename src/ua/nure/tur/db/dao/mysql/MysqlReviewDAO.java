@@ -41,7 +41,7 @@ public class MysqlReviewDAO implements ReviewDAO {
             statement = connection.prepareStatement(GET_BY_PERIODICAL_ID);
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 reviews.add(extractReview(resultSet));
             }
         } catch (SQLException e) {

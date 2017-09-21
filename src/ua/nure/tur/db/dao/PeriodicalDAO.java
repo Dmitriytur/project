@@ -1,7 +1,6 @@
 package ua.nure.tur.db.dao;
 
 import ua.nure.tur.db.SearchSettings;
-import ua.nure.tur.db.SearchSpecification;
 import ua.nure.tur.entities.Periodical;
 import ua.nure.tur.exceptions.DataAccessException;
 

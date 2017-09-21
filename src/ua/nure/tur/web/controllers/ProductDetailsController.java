@@ -2,7 +2,6 @@ package ua.nure.tur.web.controllers;
 
 import ua.nure.tur.exceptions.ServiceException;
 import ua.nure.tur.services.PeriodicalService;
-import ua.nure.tur.services.ReviewService;
 import ua.nure.tur.services.ServiceFactory;
 import ua.nure.tur.utils.Pages;
 import ua.nure.tur.viewmodels.PeriodicalDetailsViewModel;
@@ -18,6 +17,8 @@ import java.io.IOException;
 @WebServlet("/page/magazines")
 public class ProductDetailsController extends HttpServlet {
 
+    private static final int SIMILAR_PERIODICALS_LIMIT = 4;
+
     private PeriodicalService periodicalService;
 
     @Override
@@ -30,10 +31,11 @@ public class ProductDetailsController extends HttpServlet {
         long periodicalId;
         try {
             periodicalId = Integer.parseInt(req.getParameter("item"));
-            PeriodicalDetailsViewModel viewModel = periodicalService.getPeriodicalDetails(periodicalId);;
+            PeriodicalDetailsViewModel viewModel = periodicalService.getPeriodicalDetails(periodicalId, 4);
+            ;
             req.setAttribute("model", viewModel);
             req.getRequestDispatcher(Pages.PAGE_PREFIX + "magazine_details.jsp").forward(req, resp);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             resp.setStatus(400);
         } catch (ServiceException e) {
             resp.setStatus(500);

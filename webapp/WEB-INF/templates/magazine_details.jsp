@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="/WEB-INF/ratingstars.tld" prefix="m" %>
 <c:set var="title" value="Magazine details"/>
+<c:set var="pageStyle" value="/css/details.css"/>
 <%@ include file="/WEB-INF/fragments/top.jspf" %>
 
 <div class="container">
@@ -38,16 +39,20 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-12 v-space"></div>
     </div>
+
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">Similar magazines</div>
             <div class="panel-body">
-                Panel content
+                <c:set var="periodicalsList" value="${model.similarPeriodicals}"></c:set>
+                <%@ include file="/WEB-INF/partials/product_list.jspf" %>
             </div>
         </div>
     </div>
     <div class="row">
+        <div class="col-md-12 v-space"></div>
         <div class="col-md-6 ">
             <div class="well well-sm">
                 <div class="row">
@@ -141,7 +146,7 @@
                 <div class="rating-stars">
                     <m:ratingStars rating="${item.score}"/>
                 </div>
-                <h3>${item.message}</h3>
+                <h4>${item.message}</h4>
             </div></div>
 
         </c:forEach>
@@ -166,7 +171,7 @@
                     </form>
                 </div>
             </div>
-        </div
+        </div>
 	</div>
     </c:if>
     </div>

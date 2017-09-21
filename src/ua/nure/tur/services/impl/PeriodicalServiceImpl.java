@@ -1,13 +1,12 @@
 package ua.nure.tur.services.impl;
 
-import ua.nure.tur.db.SearchSettings;
 import ua.nure.tur.db.SearchSettingsImpl;
 import ua.nure.tur.db.SearchSpecification;
 import ua.nure.tur.db.dao.DAOManager;
 import ua.nure.tur.db.dao.DAOManagerFactory;
 import ua.nure.tur.db.dao.UserDAO;
-import ua.nure.tur.db.dao.mysql.MysqlDAOManager;
 import ua.nure.tur.db.spesifications.CategorySpecification;
+import ua.nure.tur.db.spesifications.NameSpecification;
 import ua.nure.tur.entities.Periodical;
 import ua.nure.tur.entities.Review;
 import ua.nure.tur.exceptions.DataAccessException;
@@ -64,11 +63,12 @@ public class PeriodicalServiceImpl implements PeriodicalService {
         searchSettings.setSearchSpecifications(specifications);
         searchSettings.setOrderSpecification("rating");
         searchSettings.setDesc(true);
+        searchSettings.setLimit(limit);
 
         DAOManager daoManager = null;
         try {
             daoManager = daoManagerFactory.getDaoManager();
-            for (String category : categories){
+            for (String category : categories) {
                 categorySpecification.setCategory(category);
                 List<Periodical> periodicals = daoManager.getPeriodicalDAO().find(searchSettings);
                 result.put(category, periodicals);
@@ -83,12 +83,13 @@ public class PeriodicalServiceImpl implements PeriodicalService {
     }
 
     @Override
-    public PeriodicalDetailsViewModel getPeriodicalDetails(Long periodicalId) throws ServiceException {
+    public PeriodicalDetailsViewModel getPeriodicalDetails(Long periodicalId, int similarPeriodicalsLimit) throws ServiceException {
         PeriodicalDetailsViewModel result = new PeriodicalDetailsViewModel();
-        DAOManager daoManager = null;
 
         SearchSettingsImpl searchSettings = new SearchSettingsImpl();
-        searchSettings.setLimit(4);
+        searchSettings.setLimit(similarPeriodicalsLimit + 1);
+
+        DAOManager daoManager = null;
         try {
             daoManager = daoManagerFactory.getDaoManager();
             Periodical periodical = daoManager.getPeriodicalDAO().getById(periodicalId);
@@ -97,7 +98,7 @@ public class PeriodicalServiceImpl implements PeriodicalService {
             result.setReviews(daoManager.getReviewDao().findForPeriodical(periodicalId));
             result.setSimilarPeriodicals(daoManager.getPeriodicalDAO().find(searchSettings));
             UserDAO userDAO = daoManager.getUserDao();
-            for (Review review : result.getReviews()){
+            for (Review review : result.getReviews()) {
                 result.addUser(userDAO.findById(review.getUserId()));
             }
         } catch (DataAccessException e) {
@@ -106,6 +107,35 @@ public class PeriodicalServiceImpl implements PeriodicalService {
             close(daoManager);
         }
         return result;
+    }
+
+    @Override
+    public List<Periodical> search(String name, String category, String sortBy, boolean desc, int limit, int offset) throws ServiceException {
+        SearchSettingsImpl searchSettings = new SearchSettingsImpl();
+
+        if (name != null) {
+            searchSettings.addSearchSpecification(new NameSpecification(name));
+        }
+
+        if (category != null) {
+            searchSettings.addSearchSpecification(new CategorySpecification(category));
+        }
+
+        searchSettings.setOrderSpecification(sortBy);
+        searchSettings.setDesc(desc);
+        searchSettings.setLimit(limit);
+        searchSettings.setOffset(offset);
+
+        DAOManager daoManager = null;
+
+        try {
+            daoManager = daoManagerFactory.getDaoManager();
+            return daoManager.getPeriodicalDAO().find(searchSettings);
+        } catch (DataAccessException e) {
+            throw new ServiceException("Cannot search periodicals", e);
+        } finally {
+            close(daoManager);
+        }
     }
 
 }

@@ -1,7 +1,6 @@
 package ua.nure.tur.db.dao.mysql;
 
 import ua.nure.tur.db.SearchSettings;
-import ua.nure.tur.db.SearchSpecification;
 import ua.nure.tur.db.dao.PeriodicalDAO;
 import ua.nure.tur.entities.Periodical;
 import ua.nure.tur.exceptions.DataAccessException;
@@ -16,7 +15,7 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
 
     private static final String SELECT_ITEMS = "select * from periodicals";
 
-    private static final String SELECT_BY_ID  = "select * from periodicals where id=?";
+    private static final String SELECT_BY_ID = "select * from periodicals where id=?";
 
     private static final String SELECT_CATEGORIES = "select * from categories";
 
@@ -36,7 +35,7 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
             statement = connection.prepareStatement(SELECT_BY_ID);
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 periodical = extractPeriodical(resultSet);
             }
         } catch (SQLException e) {
@@ -55,7 +54,8 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
     public List<Periodical> find(SearchSettings searchSettings) throws DataAccessException {
         List<Periodical> periodicals = new ArrayList<>();
 
-        String query = searchSettings.buildQuery(SELECT_ITEMS);
+        String query = SELECT_ITEMS + searchSettings.buildQueryConditions();
+        System.out.println(query);
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
@@ -85,7 +85,7 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
         try {
             statement = connection.createStatement();
             resultSet = statement.executeQuery(SELECT_CATEGORIES);
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 categories.add(resultSet.getInt("id"));
             }
         } catch (SQLException e) {

@@ -56,25 +56,26 @@ public class PeriodicalDetailsViewModel {
 
     public void setSimilarPeriodicals(List<Periodical> similarPeriodicals) {
         this.similarPeriodicals = similarPeriodicals;
+        similarPeriodicals.remove(periodical);
     }
 
-    public int getReviewsAmount(){
+    public int getReviewsAmount() {
         return reviews.size();
     }
 
 
-    private void countStatistic(){
+    private void countStatistic() {
         reviewStatisticPercents = new HashMap<>();
         reviewStatisticAmounts = new HashMap<>();
         int[] amount = new int[MAX_SCORE + 1];
         int allScores = reviews.size();
-        for (Review review: reviews){
+        for (Review review : reviews) {
             amount[review.getScore()]++;
         }
-        for (int i = 1; i <= MAX_SCORE; i++){
-            int percent = (int)(((double)amount[i]/(double) allScores) * 100);
-            reviewStatisticAmounts.put((long)i, amount[i]);
-            reviewStatisticPercents.put((long)i, percent);
+        for (int i = 1; i <= MAX_SCORE; i++) {
+            int percent = (int) (((double) amount[i] / (double) allScores) * 100);
+            reviewStatisticAmounts.put((long) i, amount[i]);
+            reviewStatisticPercents.put((long) i, percent);
         }
 
     }
@@ -85,6 +86,6 @@ public class PeriodicalDetailsViewModel {
     }
 
     public void addUser(User user) {
-        userMap.put((long)user.getId(), user);
+        userMap.put((long) user.getId(), user);
     }
 }

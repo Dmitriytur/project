@@ -20,23 +20,23 @@ public class RatingStarsTagHandler extends SimpleTagSupport {
     @Override
     public void doTag() throws JspException, IOException {
         try {
-            double ratingNumber =Double.parseDouble(rating);
-            int fullStars = (int)ratingNumber;
+            double ratingNumber = Double.parseDouble(rating);
+            int fullStars = (int) ratingNumber;
             boolean halfStar = (ratingNumber - fullStars) > DECIMAL_PART_FOR_HALF_STAR;
             int emptyStars = 5 - (halfStar ? 1 : 0) - fullStars;
             JspWriter out = getJspContext().getOut();
-            for (int i = 0; i < fullStars; i++){
+            for (int i = 0; i < fullStars; i++) {
                 out.print("<i class=\"fa fa-star\"></i>");
             }
-            if (halfStar){
+            if (halfStar) {
                 out.print("<i class=\"fa fa-star-half-o\"></i>");
             }
-            for (int i = 0; i < emptyStars; i++){
+            for (int i = 0; i < emptyStars; i++) {
                 out.print("<i class=\"fa fa-star-o\"></i>");
             }
 
 
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new SkipPageException("Wrong format of double: " + rating);
         }
     }

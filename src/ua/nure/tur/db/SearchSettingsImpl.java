@@ -15,6 +15,8 @@ public final class SearchSettingsImpl implements SearchSettings {
 
     private int limit;
 
+    private int offset;
+
     public void setSearchSpecifications(List<SearchSpecification> searchSpecifications) {
         this.searchSpecifications = searchSpecifications;
     }
@@ -31,13 +33,24 @@ public final class SearchSettingsImpl implements SearchSettings {
         this.limit = limit;
     }
 
-    @Override
-    public String buildQuery(String baseQuery){
-        StringBuilder queryBuilder = new StringBuilder(baseQuery);
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
 
-        if (searchSpecifications != null){
+    public void addSearchSpecification(SearchSpecification item) {
+        if (searchSpecifications == null) {
+            searchSpecifications = new ArrayList<>();
+        }
+        searchSpecifications.add(item);
+    }
+
+    @Override
+    public String buildQueryConditions() {
+        StringBuilder queryBuilder = new StringBuilder();
+
+        if (searchSpecifications != null) {
             for (int i = 0; i < searchSpecifications.size(); i++) {
-                if (i == 0){
+                if (i == 0) {
                     queryBuilder.append(" WHERE ");
                 } else {
                     queryBuilder.append(" AND ");
@@ -46,17 +59,20 @@ public final class SearchSettingsImpl implements SearchSettings {
             }
         }
 
-        if (orderSpecification != null){
+        if (orderSpecification != null) {
             queryBuilder.append(" ORDER BY ");
 
             queryBuilder.append(orderSpecification);
-            if (desc){
+            if (desc) {
                 queryBuilder.append(" DESC ");
             }
         }
 
-        if (limit != 0){
+        if (limit != 0) {
             queryBuilder.append(" LIMIT ").append(limit);
+        }
+        if (offset != 0) {
+            queryBuilder.append(" OFFSET ").append(offset);
         }
         return queryBuilder.toString();
     }
@@ -69,4 +85,6 @@ public final class SearchSettingsImpl implements SearchSettings {
             }
         }
     }
+
+
 }

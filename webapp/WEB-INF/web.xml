@@ -5,9 +5,34 @@
          version="3.0">
 
 
+    <context-param>
+        <param-name>defaultLimit</param-name>
+        <param-value>20</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>allowedColumnsToSort</param-name>
+        <param-value>name price rating</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>limitPeriodicalsHomePage</param-name>
+        <param-value>4</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>categoriesToShowAtHomePage</param-name>
+        <param-value>Science Music Education Health</param-value>
+    </context-param>
+
+
+
     <listener>
         <listener-class>ua.nure.tur.web.listeners.ContextListener</listener-class>
     </listener>
+
+
+
 
 
     <filter>
@@ -38,7 +63,6 @@
             <param-name>adminAccess</param-name>
             <param-value></param-value>
         </init-param>
-
     </filter>
 
     <filter-mapping>
@@ -46,6 +70,8 @@
         <url-pattern>/page/*</url-pattern>
     </filter-mapping>
     
+
+
 
 
     <error-page>

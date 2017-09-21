@@ -21,22 +21,28 @@ import java.util.Map;
 @WebServlet("/page/home")
 public class HomeController extends HttpServlet {
 
-    private static final List<String> categories = Arrays.asList("Science", "Music", "Animals");
+    private List<String> categoriesToShow;
 
-    private static final int PERIODICALS_IN_CATEGORY = 4;
+    private  int limitPeriodicals;
 
     private PeriodicalService periodicalService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
+
         periodicalService = ServiceFactory.getFactory().getPeriodicalService();
+
+        String parameter = getServletContext().getInitParameter("categoriesToShowAtHomePage");
+        categoriesToShow = Arrays.asList(parameter.split(" "));
+
+        limitPeriodicals = Integer.parseInt(getServletContext().getInitParameter("limitPeriodicalsHomePage"));
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            Map<String, List<Periodical>> popularPeriodicals = periodicalService.getPopularPeriodicalsByCategories(categories, PERIODICALS_IN_CATEGORY);
+            Map<String, List<Periodical>> popularPeriodicals = periodicalService.getPopularPeriodicalsByCategories(categoriesToShow, limitPeriodicals);
             req.setAttribute("popularPeriodicals", popularPeriodicals);
             req.getRequestDispatcher(Pages.PAGE_PREFIX + "home.jsp").forward(req, resp);
         } catch (ServiceException e) {

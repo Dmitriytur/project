@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public interface SearchSettings {
 
-    String buildQuery(String baseQuery);
+    String buildQueryConditions();
 
     void prepareStatement(PreparedStatement statement) throws SQLException;
 }

@@ -8,22 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class AccessFilter implements Filter {
 
-    private Set<String> underControl;
-
-    private Set<String> authorizedAccess;
-
-    private Set<String> adminAccess;
-
-
-    private Pattern urlPattern;
-
     private static final String URL_REGEXP = "(?<=page/)\\w*";
+    private Set<String> underControl;
+    private Set<String> authorizedAccess;
+    private Set<String> adminAccess;
+    private Pattern urlPattern;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -41,13 +38,13 @@ public class AccessFilter implements Filter {
         return new HashSet<>(Arrays.asList(parameter.split(" ")));
     }
 
-    private boolean isNotUnderControl(String resource){
+    private boolean isNotUnderControl(String resource) {
         return !underControl.contains(resource);
     }
 
-    private boolean accessAllowed(String resource, HttpSession session){
+    private boolean accessAllowed(String resource, HttpSession session) {
         User user = (User) session.getAttribute("user");
-        if (user == null){
+        if (user == null) {
             return false;
         }
         return authorizedAccess.contains(resource) ||
@@ -60,12 +57,12 @@ public class AccessFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         Matcher matcher = urlPattern.matcher(request.getRequestURI());
         String resource;
-        if (matcher.find()){
+        if (matcher.find()) {
             resource = matcher.group();
-            if (isNotUnderControl(resource) || accessAllowed(resource, request.getSession())){
+            if (isNotUnderControl(resource) || accessAllowed(resource, request.getSession())) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
-                ((HttpServletResponse)servletResponse).setStatus(401);
+                ((HttpServletResponse) servletResponse).setStatus(401);
             }
         }
 

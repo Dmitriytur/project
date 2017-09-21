@@ -15,5 +15,7 @@ public interface PeriodicalService {
 
     Map<String, List<Periodical>> getPopularPeriodicalsByCategories(List<String> categories, int limit) throws ServiceException;
 
-    PeriodicalDetailsViewModel getPeriodicalDetails(Long periodicalId) throws ServiceException;
+    PeriodicalDetailsViewModel getPeriodicalDetails(Long periodicalId, int similarPeriodicalsLimit) throws ServiceException;
+
+    List<Periodical> search(String name, String category, String sortBy, boolean desc, int limit, int offset) throws ServiceException;
 }

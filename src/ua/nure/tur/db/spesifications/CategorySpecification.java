@@ -5,7 +5,8 @@ import ua.nure.tur.db.SearchSpecification;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class CategorySpecification  implements SearchSpecification {
+public class CategorySpecification implements SearchSpecification {
+
 
     private String category;
 
@@ -15,7 +16,8 @@ public class CategorySpecification  implements SearchSpecification {
 
     @Override
     public String getCondition() {
-        return  "category=?";
+        return "category=?";
+
     }
 
     @Override

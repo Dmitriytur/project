@@ -66,12 +66,43 @@ public class Periodical extends Entity {
         this.rating = rating;
     }
 
-
     public String getCategory() {
         return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Periodical that = (Periodical) o;
+
+        if (Double.compare(that.price, price) != 0) return false;
+        if (periodicity != that.periodicity) return false;
+        if (images != that.images) return false;
+        if (Double.compare(that.rating, rating) != 0) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (description != null ? !description.equals(that.description) : that.description != null) return false;
+        return category != null ? category.equals(that.category) : that.category == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        temp = Double.doubleToLongBits(price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + periodicity;
+        result = 31 * result + images;
+        temp = Double.doubleToLongBits(rating);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (category != null ? category.hashCode() : 0);
+        return result;
     }
 }

@@ -6,10 +6,7 @@ import ua.nure.tur.entities.User;
 import ua.nure.tur.entities.UserProfile;
 import ua.nure.tur.exceptions.DataAccessException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import static ua.nure.tur.utils.ClosingUtils.close;
 
@@ -21,7 +18,7 @@ public class MysqlUserDAO implements UserDAO {
     private static final String INSERT_USER = "insert into users (user_name, password, email, role_id ,user_profile_id, lang) " +
             "values (?, ?, ?, 1, null, ?)";
 
-    private static final String FIND_USER_BY_EMAIL ="select * from users where email=?";
+    private static final String FIND_USER_BY_EMAIL = "select * from users where email=?";
 
     private static final String FIND_USER_BY_ID = "select * from users where id=?";
 
@@ -72,7 +69,7 @@ public class MysqlUserDAO implements UserDAO {
             statement = connection.prepareStatement(query);
             statement.setString(1, data);
             resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 user = extractUser(resultSet);
             }
         } finally {
@@ -113,7 +110,7 @@ public class MysqlUserDAO implements UserDAO {
             statement = connection.prepareStatement(FIND_USER_BY_ID);
             statement.setLong(1, userId);
             resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 user = extractUser(resultSet);
             }
         } catch (SQLException e) {
@@ -130,22 +127,26 @@ public class MysqlUserDAO implements UserDAO {
     @Override
     public void addUser(User user) throws DataAccessException {
         PreparedStatement statement = null;
+        ResultSet resultSet = null;
         try {
-            statement = connection.prepareStatement(INSERT_USER);
+            statement = connection.prepareStatement(INSERT_USER, Statement.RETURN_GENERATED_KEYS);
             prepareInsertStatement(statement, user);
-            statement.executeUpdate();
+            if (statement.executeUpdate() > 0) {
+                resultSet = statement.getGeneratedKeys();
+                if (resultSet.next()) {
+                    user.setId(resultSet.getLong(1));
+                }
+            }
         } catch (SQLException e) {
             //TODO log exception
             System.out.println(e.getMessage());
             throw new DataAccessException("Cannot insert new user", e);
         } finally {
+            close(resultSet);
             close(statement);
         }
 
     }
-
-
-
 
 
 }

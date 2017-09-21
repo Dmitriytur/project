@@ -36,13 +36,14 @@ public class LoginController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException { ;
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ;
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        if (username != null && password != null){
+        if (username != null && password != null) {
             try {
                 User user = userService.checkUser(username, password);
-                if (user != null){
+                if (user != null) {
                     req.getSession().setAttribute("user", user);
                     resp.sendRedirect("/page/home");
                 } else {
@@ -55,7 +56,6 @@ public class LoginController extends HttpServlet {
         } else {
             resp.setStatus(400);
         }
-
 
 
     }
