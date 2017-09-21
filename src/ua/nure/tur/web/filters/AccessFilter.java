@@ -43,12 +43,12 @@ public class AccessFilter implements Filter {
     }
 
     private boolean accessAllowed(String resource, HttpSession session) {
-        User user = (User) session.getAttribute("user");
-        if (user == null) {
+        Role role = (Role) session.getAttribute("role");
+        if (role == null) {
             return false;
         }
         return authorizedAccess.contains(resource) ||
-                (user.getRole() == Role.ADMIN && adminAccess.contains(resource));
+                (role == Role.ADMIN && adminAccess.contains(resource));
 
     }
 
@@ -59,7 +59,6 @@ public class AccessFilter implements Filter {
         String resource;
         if (matcher.find()) {
             resource = matcher.group();
-            System.out.println(resource);
             if (isNotUnderControl(resource) || accessAllowed(resource, request.getSession())) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {

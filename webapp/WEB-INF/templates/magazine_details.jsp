@@ -150,7 +150,7 @@
             </div></div>
 
         </c:forEach>
-        <c:if test="${user != null}">
+        <c:if test="${userId != null}">
         <div class="well well-sm">
             <div class="text-right">
                 <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a Review</a>

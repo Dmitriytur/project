@@ -44,7 +44,8 @@ public class LoginController extends HttpServlet {
             try {
                 User user = userService.checkUser(username, password);
                 if (user != null) {
-                    req.getSession().setAttribute("user", user);
+                    req.getSession().setAttribute("userId", user.getId());
+                    req.getSession().setAttribute("role", user.getRole());
                     resp.sendRedirect("/page/home");
                 } else {
                     req.getSession().setAttribute(ERROR_MESSAGE_ATTRIBUTE, "Wrong username or password");

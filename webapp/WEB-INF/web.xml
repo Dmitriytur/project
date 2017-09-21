@@ -22,7 +22,7 @@
 
     <context-param>
         <param-name>categoriesToShowAtHomePage</param-name>
-        <param-value>Science Music Education Health</param-value>
+        <param-value>News & Politic;Music;Education;Health</param-value>
     </context-param>
 
 

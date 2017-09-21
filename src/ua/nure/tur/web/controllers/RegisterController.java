@@ -42,7 +42,8 @@ public class RegisterController extends HttpServlet {
             try {
                 ServiceResult<User> serviceResult = userService.registerClient(user);
                 if (serviceResult.getStatus() == ServiceResultStatus.SUCCESS) {
-                    req.getSession().setAttribute("user", serviceResult.getData());
+                    req.getSession().setAttribute("userId", serviceResult.getData().getId());
+                    req.getSession().setAttribute("role", serviceResult.getData().getRole());
                 } else {
                     resp.setStatus(400);
                     resp.getWriter().print(serviceResult.getMessage());

@@ -1,6 +1,6 @@
 package ua.nure.tur.entities;
 
-public class UserProfile {
+public class UserProfile extends Entity{
 
     private String firstName;
 
@@ -51,4 +51,6 @@ public class UserProfile {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
+
+
 }

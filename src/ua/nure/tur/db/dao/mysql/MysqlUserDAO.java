@@ -22,6 +22,15 @@ public class MysqlUserDAO implements UserDAO {
 
     private static final String FIND_USER_BY_ID = "select * from users where id=?";
 
+    private static final String UPDATE_USER = "update users set password=?, user_profile_id=?, lang=? where id=?";
+
+    private static final String SELECT_USER_PROFILE = "select * from user_profiles where id=?";
+
+    private static final String INSERT_USER_PROFILE = "insert into user_profiles values (default, ?, ?, ?, ?, ?)";
+
+    private static final String UPDATE_PROFILE = "update user_profiles set first_name=?, last_name=?, city=?, address=?, zip_code=? " +
+            "where id=?";
+
     private Connection connection;
 
     public MysqlUserDAO(Connection connection) {
@@ -42,7 +51,7 @@ public class MysqlUserDAO implements UserDAO {
         return user;
     }
 
-    private void prepareInsertStatement(PreparedStatement statement, User user) throws SQLException {
+    private void prepareInsertUser(PreparedStatement statement, User user) throws SQLException {
         int i = 1;
         statement.setString(i++, user.getUserName());
         statement.setString(i++, user.getPassword());
@@ -52,6 +61,7 @@ public class MysqlUserDAO implements UserDAO {
 
     private UserProfile extractUserProfile(ResultSet resultSet) throws SQLException {
         UserProfile userProfile = new UserProfile();
+        userProfile.setId(resultSet.getLong("id"));
         userProfile.setFirstName(resultSet.getString("first_name"));
         userProfile.setLastName(resultSet.getString("last_name"));
         userProfile.setCity(resultSet.getString("city"));
@@ -125,12 +135,106 @@ public class MysqlUserDAO implements UserDAO {
     }
 
     @Override
+    public void update(User user) throws DataAccessException {
+        PreparedStatement statement = null;
+
+        try {
+            statement = connection.prepareStatement(UPDATE_USER);
+            int i = 1;
+            statement.setString(i++, user.getPassword());
+            statement.setLong(i++, user.getUserProfileId());
+            statement.setString(i++, user.getLang());
+            statement.setLong(i, user.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            //TODO log
+            System.out.println(e.getMessage());
+            throw new DataAccessException("Cannot update user", e);
+        } finally {
+            close(statement);
+        }
+    }
+
+    @Override
+    public UserProfile getUserProfile(Long userId) throws DataAccessException {
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            statement = connection.prepareStatement(SELECT_USER_PROFILE);
+            statement.setLong(1, userId);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()){
+                return extractUserProfile(resultSet);
+            }
+        } catch (SQLException e) {
+            //TODO log
+            System.out.println(e);
+            throw new DataAccessException("Cannot get user profile", e);
+        } finally {
+            close(resultSet);
+            close(statement);
+        }
+        return null;
+    }
+
+    @Override
+    public void addUserProfile(UserProfile profile) throws DataAccessException {
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(INSERT_USER_PROFILE, Statement.RETURN_GENERATED_KEYS);
+            prepareInsertProfile(statement, profile);
+            if (statement.executeUpdate() > 0) {
+                resultSet = statement.getGeneratedKeys();
+                if (resultSet.next()) {
+                    profile.setId(resultSet.getLong(1));
+                }
+            }
+        } catch (SQLException e) {
+            //TODO log exception
+            System.out.println(e.getMessage());
+            throw new DataAccessException("Cannot insert new user profile", e);
+        } finally {
+            close(resultSet);
+            close(statement);
+        }
+    }
+
+    @Override
+    public void updateUserProfile(UserProfile profile) throws DataAccessException {
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(UPDATE_PROFILE);
+            int i = prepareInsertProfile(statement, profile);
+            statement.setLong(i, profile.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            //TODO log
+            System.out.println(e.getMessage());
+            throw new DataAccessException("Cannot update user profile", e);
+        } finally {
+            close(statement);
+        }
+    }
+
+    private int prepareInsertProfile(PreparedStatement statement, UserProfile profile) throws SQLException {
+        int i = 1;
+        statement.setString(i++, profile.getFirstName());
+        statement.setString(i++, profile.getLastName());
+        statement.setString(i++, profile.getCity());
+        statement.setString(i++, profile.getAddress());
+        statement.setString(i++, profile.getZipCode());
+        return i;
+    }
+
+    @Override
     public void addUser(User user) throws DataAccessException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
             statement = connection.prepareStatement(INSERT_USER, Statement.RETURN_GENERATED_KEYS);
-            prepareInsertStatement(statement, user);
+            prepareInsertUser(statement, user);
             if (statement.executeUpdate() > 0) {
                 resultSet = statement.getGeneratedKeys();
                 if (resultSet.next()) {

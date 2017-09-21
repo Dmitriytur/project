@@ -34,7 +34,7 @@ public class HomeController extends HttpServlet {
         periodicalService = ServiceFactory.getFactory().getPeriodicalService();
 
         String parameter = getServletContext().getInitParameter("categoriesToShowAtHomePage");
-        categoriesToShow = Arrays.asList(parameter.split(" "));
+        categoriesToShow = Arrays.asList(parameter.split(";"));
 
         limitPeriodicals = Integer.parseInt(getServletContext().getInitParameter("limitPeriodicalsHomePage"));
     }

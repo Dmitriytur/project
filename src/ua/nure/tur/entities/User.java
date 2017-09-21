@@ -83,4 +83,18 @@ public class User extends Entity {
     public void setUserProfileId(Long userProfileId) {
         this.userProfileId = userProfileId;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", balance=" + balance +
+                ", banned=" + banned +
+                ", email='" + email + '\'' +
+                ", lang='" + lang + '\'' +
+                ", role=" + role +
+                ", userProfileId=" + userProfileId +
+                '}';
+    }
 }

@@ -18,9 +18,13 @@ public final class UserValidator {
         if (user.getEmail() == null || !user.getEmail().matches(EMAIL_REGEXP)) {
             return false;
         }
-        if (user.getPassword() == null || !user.getPassword().matches(PASSWORD_REGEXP)) {
+        if (!validatePassword(user.getPassword())) {
             return false;
         }
         return true;
+    }
+
+    public static boolean validatePassword(String password){
+        return password != null && password.matches(PASSWORD_REGEXP);
     }
 }

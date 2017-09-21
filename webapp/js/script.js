@@ -65,7 +65,7 @@ $("#btnRegister").click(function(event) {
 
     if (!validatePassword(password)){
         formIsValid = false;
-        setError("#password", "Password must contain at least 6 characters, at least 1 number at least 1 uppercase character and only lettern and digits");
+        setError("#password", "Password must contain at least 6 characters, at least 1 number and only lettern and digits");
     } else if (password != confirmPassword){
         formIsValid = false;
         setError("#password", "");
@@ -92,4 +92,48 @@ $("#btnRegister").click(function(event) {
         });
 
     }
+});
+
+
+$("#btnPassword").click(function(event) {
+    var oldPassword =  $("#oldPassword input").val();
+    var password = $("#password input").val();
+    var confirmPassword = $("#confirmPassword input").val();
+
+    if (!validatePassword(password)){
+        formIsValid = false;
+        setError("#password", "Password must contain at least 6 characters, at least 1 number at least 1 uppercase character and only lettern and digits");
+    } else if (password != confirmPassword){
+        formIsValid = false;
+        setError("#password", "");
+        setError("#confirmPassword", "Enter the same password in both password fields");
+    } else {
+        formIsValid = true;
+        resetError("#password");
+        resetError("#confirmPassword");
+    }
+
+    if (formIsValid) {
+        var params = {oldPassword: oldPassword, password: password};
+        $.ajax({
+            url: '/page/profile/password',
+            type: 'POST',
+            data: jQuery.param( params ),
+            error: function(response){
+                $("#errorMessage p").text(response.responseText);
+                $("#errorMessage").css('display','block');
+
+            },
+            success: function(response) {
+            
+                $("#successMessage p").text(response.responseText);
+                $("#successMessage").css('display','block');
+                $("#errorMessage").css('display','none');
+
+            }
+        });
+    }
+
+
+
 });
