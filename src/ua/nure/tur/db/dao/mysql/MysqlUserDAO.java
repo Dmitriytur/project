@@ -23,6 +23,8 @@ public class MysqlUserDAO implements UserDAO {
 
     private static final String FIND_USER_BY_EMAIL ="select * from users where email=?";
 
+    private static final String FIND_USER_BY_ID = "select * from users where id=?";
+
     private Connection connection;
 
     public MysqlUserDAO(Connection connection) {
@@ -31,7 +33,7 @@ public class MysqlUserDAO implements UserDAO {
 
     private User extractUser(ResultSet resultSet) throws SQLException {
         User user = new User();
-        user.setId(resultSet.getInt("id"));
+        user.setId(resultSet.getLong("id"));
         user.setUserName(resultSet.getString("user_name"));
         user.setPassword(resultSet.getString("password"));
         user.setBalance(resultSet.getDouble("balance"));
@@ -39,7 +41,7 @@ public class MysqlUserDAO implements UserDAO {
         user.setEmail(resultSet.getString("email"));
         user.setLang(resultSet.getString("lang"));
         user.setRole(Role.getRole(resultSet.getInt("role_id")));
-        user.setUserProfileId(resultSet.getInt("user_profile_id"));
+        user.setUserProfileId(resultSet.getLong("user_profile_id"));
         return user;
     }
 
@@ -100,6 +102,29 @@ public class MysqlUserDAO implements UserDAO {
             System.out.println(e);
             throw new DataAccessException("Cannot get user by email", e);
         }
+    }
+
+    @Override
+    public User findById(Long userId) throws DataAccessException {
+        User user = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(FIND_USER_BY_ID);
+            statement.setLong(1, userId);
+            resultSet = statement.executeQuery();
+            if (resultSet.next()){
+                user = extractUser(resultSet);
+            }
+        } catch (SQLException e) {
+            //TODO log
+            System.out.println(e);
+            throw new DataAccessException("Cannot get user by id", e);
+        } finally {
+            close(resultSet);
+            close(statement);
+        }
+        return user;
     }
 
     @Override

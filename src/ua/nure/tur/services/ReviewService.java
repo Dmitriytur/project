@@ -6,5 +6,5 @@ import ua.nure.tur.exceptions.ServiceException;
 import java.util.List;
 
 public interface ReviewService {
-    List<Review> findForPeriodical(int id) throws ServiceException;
+    List<Review> findForPeriodical(Long id) throws ServiceException;
 }

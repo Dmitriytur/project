@@ -19,7 +19,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<Review> findForPeriodical(int id) throws ServiceException {
+    public List<Review> findForPeriodical(Long id) throws ServiceException {
         DAOManager daoManager = null;
         try {
             daoManager = daoManagerFactory.getDaoManager();

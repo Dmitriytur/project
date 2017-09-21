@@ -18,7 +18,7 @@ public class User extends Entity {
 
     private Role role;
 
-    private Integer userProfileId;
+    private Long userProfileId;
 
     public String getUserName() {
         return userName;
@@ -76,11 +76,11 @@ public class User extends Entity {
         this.role = role;
     }
 
-    public Integer getUserProfileId() {
+    public Long getUserProfileId() {
         return userProfileId;
     }
 
-    public void setUserProfileId(Integer userProfileId) {
+    public void setUserProfileId(Long userProfileId) {
         this.userProfileId = userProfileId;
     }
 }

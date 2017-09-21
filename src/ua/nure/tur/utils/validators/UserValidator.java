@@ -2,8 +2,6 @@ package ua.nure.tur.utils.validators;
 
 import ua.nure.tur.entities.User;
 
-import java.util.regex.Pattern;
-
 public final class UserValidator {
 
     private static final String USERNAME_REGEXP = "[A-Za-z]([A-Za-z0-9]){5,19}";

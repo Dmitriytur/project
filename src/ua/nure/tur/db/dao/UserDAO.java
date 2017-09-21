@@ -10,4 +10,6 @@ public interface UserDAO {
     void addUser(User user) throws DataAccessException;
 
     User findByEmail(String email) throws DataAccessException;
+
+    User findById(Long userId) throws DataAccessException;
 }

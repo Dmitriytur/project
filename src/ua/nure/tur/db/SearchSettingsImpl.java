@@ -1,0 +1,72 @@
+package ua.nure.tur.db;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public final class SearchSettingsImpl implements SearchSettings {
+
+    private List<SearchSpecification> searchSpecifications;
+
+    private String orderSpecification;
+
+    private boolean desc;
+
+    private int limit;
+
+    public void setSearchSpecifications(List<SearchSpecification> searchSpecifications) {
+        this.searchSpecifications = searchSpecifications;
+    }
+
+    public void setOrderSpecification(String orderSpecification) {
+        this.orderSpecification = orderSpecification;
+    }
+
+    public void setDesc(boolean desc) {
+        this.desc = desc;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
+
+    @Override
+    public String buildQuery(String baseQuery){
+        StringBuilder queryBuilder = new StringBuilder(baseQuery);
+
+        if (searchSpecifications != null){
+            for (int i = 0; i < searchSpecifications.size(); i++) {
+                if (i == 0){
+                    queryBuilder.append(" WHERE ");
+                } else {
+                    queryBuilder.append(" AND ");
+                }
+                queryBuilder.append(searchSpecifications.get(i).getCondition());
+            }
+        }
+
+        if (orderSpecification != null){
+            queryBuilder.append(" ORDER BY ");
+
+            queryBuilder.append(orderSpecification);
+            if (desc){
+                queryBuilder.append(" DESC ");
+            }
+        }
+
+        if (limit != 0){
+            queryBuilder.append(" LIMIT ").append(limit);
+        }
+        return queryBuilder.toString();
+    }
+
+    @Override
+    public void prepareStatement(PreparedStatement statement) throws SQLException {
+        if (searchSpecifications != null) {
+            for (int i = 0; i < searchSpecifications.size(); i++) {
+                searchSpecifications.get(i).prepareStatement(statement, i + 1);
+            }
+        }
+    }
+}

@@ -12,9 +12,9 @@ public class Review extends Entity {
 
     private Date creationDate;
 
-    private int userId;
+    private Long userId;
 
-    private int periodicalId;
+    private Long periodicalId;
 
 
     public int getScore() {
@@ -41,19 +41,19 @@ public class Review extends Entity {
         this.creationDate = creationDate;
     }
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public int getPeriodicalId() {
+    public Long getPeriodicalId() {
         return periodicalId;
     }
 
-    public void setPeriodicalId(int periodicalId) {
+    public void setPeriodicalId(Long periodicalId) {
         this.periodicalId = periodicalId;
     }
 }

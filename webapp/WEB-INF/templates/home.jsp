@@ -3,11 +3,18 @@
 <%@ include file="/WEB-INF/fragments/top.jspf" %>
 
 <div class="container">
-    <div class="panel panel-default">
-    <div class="panel-heading">Panel heading</div>
-    <div class="panel-body">
-    <%@ include file="/WEB-INF/partials/product_list.jspf" %>
-    </div></div>
+
+    <c:forEach items="${popularPeriodicals}" var="item">
+        <div class="panel panel-default">
+        <div class="panel-heading">${item.key}</div>
+        <div class="panel-body">
+        <div class="container">
+            <div class="row">
+
+            <c:set var="periodicalsList" value="${item.value}"></c:set>
+            <%@ include file="/WEB-INF/partials/product_list.jspf" %>
+        </div></div></div></div>
+    </c:forEach>
 </div>
 
 <%@ include file="/WEB-INF/fragments/bottom.jspf" %>

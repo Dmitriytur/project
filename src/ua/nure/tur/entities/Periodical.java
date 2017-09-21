@@ -16,7 +16,7 @@ public class Periodical extends Entity {
 
     private double rating;
 
-    private Integer categoryId;
+    private String category;
 
     public String getName() {
         return name;
@@ -66,11 +66,12 @@ public class Periodical extends Entity {
         this.rating = rating;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

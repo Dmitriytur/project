@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ReviewDAO {
 
-    List<Review> findForPeriodical(int id) throws DataAccessException;
+    List<Review> findForPeriodical(Long id) throws DataAccessException;
 }

@@ -23,23 +23,23 @@ public class MysqlReviewDAO implements ReviewDAO {
 
     private Review extractReview(ResultSet resultSet) throws SQLException {
         Review review = new Review();
-        review.setId(resultSet.getInt("id"));
+        review.setId(resultSet.getLong("id"));
         review.setScore(resultSet.getInt("score"));
         review.setMessage(resultSet.getString("message"));
         review.setCreationDate(resultSet.getDate("creation_date"));
-        review.setUserId(resultSet.getInt("user_id"));
-        review.setPeriodicalId(resultSet.getInt("periodical_id"));
+        review.setUserId(resultSet.getLong("user_id"));
+        review.setPeriodicalId(resultSet.getLong("periodical_id"));
         return review;
     }
 
     @Override
-    public List<Review> findForPeriodical(int id) throws DataAccessException {
+    public List<Review> findForPeriodical(Long id) throws DataAccessException {
         List<Review> reviews = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
             statement = connection.prepareStatement(GET_BY_PERIODICAL_ID);
-            statement.setInt(1, id);
+            statement.setLong(1, id);
             resultSet = statement.executeQuery();
             while (resultSet.next()){
                 reviews.add(extractReview(resultSet));
