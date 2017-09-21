@@ -59,6 +59,7 @@ public class AccessFilter implements Filter {
         String resource;
         if (matcher.find()) {
             resource = matcher.group();
+            System.out.println(resource);
             if (isNotUnderControl(resource) || accessAllowed(resource, request.getSession())) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {

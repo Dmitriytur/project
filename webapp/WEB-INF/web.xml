@@ -12,7 +12,7 @@
 
     <context-param>
         <param-name>allowedColumnsToSort</param-name>
-        <param-value>name price rating</param-value>
+        <param-value>rating price name</param-value>
     </context-param>
 
     <context-param>
@@ -78,4 +78,6 @@
         <error-code>404</error-code>
         <location>/WEB-INF/templates/404.jsp</location>
     </error-page>
+
+
 </web-app>

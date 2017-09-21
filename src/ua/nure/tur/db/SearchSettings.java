@@ -7,5 +7,7 @@ public interface SearchSettings {
 
     String buildQueryConditions();
 
+    String buildFilterPart();
+
     void prepareStatement(PreparedStatement statement) throws SQLException;
 }

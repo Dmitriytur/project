@@ -12,23 +12,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PeriodicalService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/services/PeriodicalService.java">
+      <file leaf-file-name="PeriodicalServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/services/impl/PeriodicalServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            <state relative-caret-position="226">
+              <caret line="104" column="41" lean-forward="true" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchResultViewModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/viewmodels/SearchResultViewModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#294#295#0" expanded="true" />
+                <element signature="e#328#329#0" expanded="true" />
+                <element signature="e#392#393#0" expanded="true" />
+                <element signature="e#438#439#0" expanded="true" />
+                <element signature="e#468#469#0" expanded="true" />
+                <element signature="e#497#498#0" expanded="true" />
+                <element signature="e#538#539#0" expanded="true" />
+                <element signature="e#574#575#0" expanded="true" />
+                <element signature="e#624#625#0" expanded="true" />
+                <element signature="e#657#658#0" expanded="true" />
+                <element signature="e#722#723#0" expanded="true" />
+                <element signature="e#766#767#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PeriodicalServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/services/impl/PeriodicalServiceImpl.java">
+      <file leaf-file-name="PeriodicalDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/dao/PeriodicalDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="123" column="33" lean-forward="true" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
+            <state relative-caret-position="228">
+              <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MysqlPeriodicalDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/dao/mysql/MysqlPeriodicalDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="59" column="76" lean-forward="false" selection-start-line="59" selection-start-column="76" selection-end-line="59" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -37,8 +69,8 @@
       <file leaf-file-name="SearchSettingsImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/SearchSettingsImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="449">
+              <caret line="84" column="39" lean-forward="false" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setSearchSpecifications#0;class#SearchSettingsImpl#0" expanded="false" />
@@ -50,81 +82,64 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NameSpecification.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/spesifications/NameSpecification.java">
+      <file leaf-file-name="SearchSettings.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/SearchSettings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#283#284#0" expanded="true" />
-                <element signature="e#340#341#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
-                <element signature="e#426#427#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategorySpecification.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/spesifications/CategorySpecification.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MysqlPeriodicalDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/dao/mysql/MysqlPeriodicalDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="57" column="32" lean-forward="false" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
-              <folding>
-                <element signature="method#findAllCategories#0;class#MysqlPeriodicalDAO#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ratingstars.tld" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/WEB-INF/ratingstars.tld">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="152">
+              <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SearchController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/web/controllers/SearchController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+            <state relative-caret-position="335">
+              <caret line="78" column="19" lean-forward="true" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccessFilter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/web/filters/AccessFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="61" column="41" lean-forward="false" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/web/controllers/HomeController.java">
+      <file leaf-file-name="PaginationViewModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/viewmodels/PaginationViewModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="44" column="96" lean-forward="false" selection-start-line="44" selection-start-column="96" selection-end-line="44" selection-end-column="96" />
-              <folding />
+            <state relative-caret-position="171">
+              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding>
+                <element signature="e#820#821#0" expanded="true" />
+                <element signature="e#854#855#0" expanded="true" />
+                <element signature="e#891#892#0" expanded="true" />
+                <element signature="e#924#925#0" expanded="true" />
+                <element signature="e#961#962#0" expanded="true" />
+                <element signature="e#994#995#0" expanded="true" />
+                <element signature="e#1027#1028#0" expanded="true" />
+                <element signature="e#1059#1060#0" expanded="true" />
+                <element signature="e#1091#1092#0" expanded="true" />
+                <element signature="e#1122#1123#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/WEB-INF/web.xml">
+      <file leaf-file-name="PeriodicalDetailsViewModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/viewmodels/PeriodicalDetailsViewModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="24" column="45" lean-forward="false" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+            <state relative-caret-position="580">
+              <caret line="58" column="46" lean-forward="false" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -158,10 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ua/nure/tur/web/controllers/LogoutController.java" />
-        <option value="$PROJECT_DIR$/src/ua/nure/tur/web/filters/CharacterEncodingFilter.java" />
-        <option value="$PROJECT_DIR$/src/ua/nure/tur/entities/Role.java" />
-        <option value="$PROJECT_DIR$/src/ua/nure/tur/web/customtags/RatingStarTagHandler.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/web/controllers/ProductDetailController.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/db/dao/DAOManager.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/web/tags/RatingStarsTagHandler2.java" />
@@ -171,7 +182,6 @@
         <option value="$PROJECT_DIR$/src/ua/nure/tur/viewmodels.java" />
         <option value="$PROJECT_DIR$/deploy_tomcat.bat" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/web/controllers/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/ua/nure/tur/web/filters/AccessFilter.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/exceptions/RegistrationException.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/db/PeriodicalSearchSpesification.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/db/PeriodicalSearchSpecification.java" />
@@ -186,7 +196,6 @@
         <option value="$PROJECT_DIR$/src/ua/nure/tur/entities/User.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/db/dao/ReviewDAO.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/db/dao/mysql/MysqlReviewDAO.java" />
-        <option value="$PROJECT_DIR$/src/ua/nure/tur/db/dao/PeriodicalDAO.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/services/impl/ReviewServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/services/ReviewService.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/entities/Periodical.java" />
@@ -200,15 +209,21 @@
         <option value="$PROJECT_DIR$/src/ua/nure/tur/services/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/web/controllers/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/db/dao/mysql/MysqlUserDAO.java" />
+        <option value="$PROJECT_DIR$/src/ua/nure/tur/web/controllers/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/ua/nure/tur/db/spesifications/NameSpecification.java" />
+        <option value="$PROJECT_DIR$/src/ua/nure/tur/viewmodels/SearchViewModel.java" />
+        <option value="$PROJECT_DIR$/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/ua/nure/tur/web/controllers/SearchPageController.java" />
+        <option value="$PROJECT_DIR$/src/ua/nure/tur/services/PeriodicalService.java" />
+        <option value="$PROJECT_DIR$/src/ua/nure/tur/viewmodels/SearchResultViewModel.java" />
+        <option value="$PROJECT_DIR$/src/ua/nure/tur/db/dao/PeriodicalDAO.java" />
+        <option value="$PROJECT_DIR$/src/ua/nure/tur/services/impl/PeriodicalServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/ua/nure/tur/viewmodels/PaginationViewModel.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/db/SearchSettingsImpl.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/db/SearchSettings.java" />
-        <option value="$PROJECT_DIR$/src/ua/nure/tur/services/PeriodicalService.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/db/dao/mysql/MysqlPeriodicalDAO.java" />
-        <option value="$PROJECT_DIR$/src/ua/nure/tur/web/controllers/HomeController.java" />
-        <option value="$PROJECT_DIR$/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/ua/nure/tur/services/impl/PeriodicalServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/ua/nure/tur/db/spesifications/NameSpecification.java" />
         <option value="$PROJECT_DIR$/src/ua/nure/tur/web/controllers/SearchController.java" />
+        <option value="$PROJECT_DIR$/src/ua/nure/tur/web/filters/AccessFilter.java" />
       </list>
     </option>
   </component>
@@ -288,6 +303,61 @@
               <item name="db" type="462c0819:PsiDirectoryNode" />
               <item name="spesifications" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SummaryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SummaryProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tur" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SummaryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SummaryProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tur" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SummaryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SummaryProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tur" type="462c0819:PsiDirectoryNode" />
+              <item name="viewmodels" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SummaryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SummaryProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tur" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SummaryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SummaryProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tur" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SummaryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SummaryProject" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SummaryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SummaryProject" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SummaryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SummaryProject" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -303,7 +373,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="Sear&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/SearchController.java&#10;Sea&#9;PSI&#9;JAVA://ua.nure.tur.web.controllers.SearchController&#10;Home&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/HomeController.java&#10;Se&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/SearchController.java&#10;Peri&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlPeriodicalDAO.java&#10;s&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/SearchController.java&#10;Per&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/PeriodicalServiceImpl.java&#10;UserDa&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlUserDAO.java&#10;SearchC&#9;PSI&#9;JAVA://ua.nure.tur.web.controllers.SearchController&#10;Reg&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/RegisterController.java&#10;UserSe&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/UserServiceImpl.java&#10;Regi&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/RegisterController.java&#10;Valida&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/utils/validators/UserValidator.java&#10;Use&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/UserServiceImpl.java&#10;Ser&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/ServiceResult.java&#10;Serres&#9;PSI&#9;JAVA://ua.nure.tur.services.ServiceResultStatus&#10;Regist&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/RegisterController.java&#10;UserSer&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/UserServiceImpl.java&#10;Deta&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/ProductDetailsController.java&#10;Mysq&#9;PSI&#9;JAVA://ua.nure.tur.db.dao.mysql.MysqlPeriodicalDAO&#10;Pe&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlPeriodicalDAO.java&#10;Dao&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/PeriodicalDAO.java&#10;Period&#9;PSI&#9;JAVA://ua.nure.tur.entities.Periodical&#10;Consu&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/function/Consumer.java&#10;Function&#9;PSI&#9;JAVA://java.util.function.Function&#10;User&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlUserDAO.java&#10;Userda&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/UserDAO.java&#10;Userse&#9;PSI&#9;JAVA://ua.nure.tur.services.UserService&#10;Regis&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/RegisterController.java&#10;UserD&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlUserDAO.java&#10;Login&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/LoginController.java&#10;SEr&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/ReviewServiceImpl.java&#10;dETA&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/ProductDetailsController.java&#10;RevSe&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/ReviewServiceImpl.java&#10;View&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/viewmodels/PeriodicalDetailsViewModel.java&#10;Perio&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/PeriodicalServiceImpl.java&#10;Manaf&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/DAOManagerFactory.java&#10;Enum&#9;PSI&#9;JAVA://java.lang.Enum&#10;Optiona&#9;PSI&#9;JAVA://java.util.Optional&#10;logi&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/LoginServlet.java&#10;userS&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/UserService.java&#10;userser&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/UserServiceImpl.java" />
+    <property name="SearchEverywhereHistoryKey" value="Access&#9;PSI&#9;JAVA://ua.nure.tur.web.filters.AccessFilter&#10;SearchC&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/SearchController.java&#10;Per&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlPeriodicalDAO.java&#10;Sear&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/SearchSettings.java&#10;SearchSe&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/SearchSettingsImpl.java&#10;Peri&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlPeriodicalDAO.java&#10;Search&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/SearchController.java&#10;User&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlUserDAO.java&#10;viewmo&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/viewmodels/PaginationViewModel.java&#10;Sea&#9;PSI&#9;JAVA://ua.nure.tur.web.controllers.SearchController&#10;Home&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/HomeController.java&#10;Se&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/SearchController.java&#10;s&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/SearchController.java&#10;UserDa&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlUserDAO.java&#10;Reg&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/RegisterController.java&#10;UserSe&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/UserServiceImpl.java&#10;Regi&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/RegisterController.java&#10;Valida&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/utils/validators/UserValidator.java&#10;Use&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/UserServiceImpl.java&#10;Ser&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/ServiceResult.java&#10;Serres&#9;PSI&#9;JAVA://ua.nure.tur.services.ServiceResultStatus&#10;Regist&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/RegisterController.java&#10;UserSer&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/UserServiceImpl.java&#10;Deta&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/ProductDetailsController.java&#10;Mysq&#9;PSI&#9;JAVA://ua.nure.tur.db.dao.mysql.MysqlPeriodicalDAO&#10;Pe&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlPeriodicalDAO.java&#10;Dao&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/PeriodicalDAO.java&#10;Period&#9;PSI&#9;JAVA://ua.nure.tur.entities.Periodical&#10;Consu&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/function/Consumer.java&#10;Function&#9;PSI&#9;JAVA://java.util.function.Function&#10;Userda&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/UserDAO.java&#10;Userse&#9;PSI&#9;JAVA://ua.nure.tur.services.UserService&#10;Regis&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/RegisterController.java&#10;UserD&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/mysql/MysqlUserDAO.java&#10;Login&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/LoginController.java&#10;SEr&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/ReviewServiceImpl.java&#10;dETA&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/ProductDetailsController.java&#10;RevSe&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/ReviewServiceImpl.java&#10;View&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/viewmodels/PeriodicalDetailsViewModel.java&#10;Perio&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/PeriodicalServiceImpl.java&#10;Manaf&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/db/dao/DAOManagerFactory.java&#10;Enum&#9;PSI&#9;JAVA://java.lang.Enum&#10;Optiona&#9;PSI&#9;JAVA://java.util.Optional&#10;logi&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/web/controllers/LoginServlet.java&#10;userS&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/UserService.java&#10;userser&#9;FILE&#9;file://C:/Files/projects/SummaryProject/src/ua/nure/tur/services/impl/UserServiceImpl.java" />
     <property name="last.edited.regexp" value="ema" />
   </component>
   <component name="RecentsManager">
@@ -524,69 +594,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/web/filters/AccessFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="53" column="81" lean-forward="false" selection-start-line="53" selection-start-column="81" selection-end-line="53" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/exceptions/RegistrationException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/WEB-INF/classes/ua/nure/tur/viewmodels/PeriodicalDetailsViewModel.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#583#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/PeriodicalSearchSpecification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/function/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/function/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/spesifications.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/sql/SQLException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -759,14 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/viewmodels/PeriodicalDetailsViewModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="58" column="46" lean-forward="false" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/web/controllers/ProductDetailsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -855,30 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/dao/PeriodicalDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/SearchSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/dao/mysql/MysqlUserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="108" column="13" lean-forward="false" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/spesifications/CategorySpecification.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -897,28 +877,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/dao/mysql/MysqlPeriodicalDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="57" column="32" lean-forward="false" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
-          <folding>
-            <element signature="method#findAllCategories#0;class#MysqlPeriodicalDAO#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/WEB-INF/ratingstars.tld">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="24" column="45" lean-forward="false" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -931,42 +893,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/services/PeriodicalService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/services/impl/PeriodicalServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="123" column="33" lean-forward="true" selection-start-line="123" selection-start-column="33" selection-end-line="123" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/SearchSettingsImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setSearchSpecifications#0;class#SearchSettingsImpl#0" expanded="false" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#666#667#0" expanded="true" />
-            <element signature="method#addSearchSpecification#0;class#SearchSettingsImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/spesifications/NameSpecification.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#283#284#0" expanded="true" />
@@ -977,10 +907,173 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/web/controllers/SearchController.java">
+    <entry file="file://$PROJECT_DIR$/webapp/deploy_static.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/viewmodels/SearchViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/viewmodels/PaginationViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="90" column="17" lean-forward="false" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/web/controllers/SearchPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="32" column="47" lean-forward="false" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/services/PeriodicalService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/dao/mysql/MysqlUserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-28">
+          <caret line="108" column="13" lean-forward="false" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/dao/PeriodicalDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
-          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+          <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/viewmodels/SearchResultViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#294#295#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#468#469#0" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#722#723#0" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/viewmodels/PeriodicalDetailsViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="58" column="46" lean-forward="false" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/viewmodels/PaginationViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#820#821#0" expanded="true" />
+            <element signature="e#854#855#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="e#924#925#0" expanded="true" />
+            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#994#995#0" expanded="true" />
+            <element signature="e#1027#1028#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1091#1092#0" expanded="true" />
+            <element signature="e#1122#1123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/services/impl/PeriodicalServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="104" column="41" lean-forward="true" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/SearchSettingsImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="84" column="39" lean-forward="false" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setSearchSpecifications#0;class#SearchSettingsImpl#0" expanded="false" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="method#addSearchSpecification#0;class#SearchSettingsImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/SearchSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/db/dao/mysql/MysqlPeriodicalDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="59" column="76" lean-forward="false" selection-start-line="59" selection-start-column="76" selection-end-line="59" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/web/controllers/SearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="78" column="19" lean-forward="true" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ua/nure/tur/web/filters/AccessFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="61" column="41" lean-forward="false" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
           <folding />
         </state>
       </provider>

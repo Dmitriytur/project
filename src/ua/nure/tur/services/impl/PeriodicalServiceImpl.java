@@ -13,6 +13,7 @@ import ua.nure.tur.exceptions.DataAccessException;
 import ua.nure.tur.exceptions.ServiceException;
 import ua.nure.tur.services.PeriodicalService;
 import ua.nure.tur.viewmodels.PeriodicalDetailsViewModel;
+import ua.nure.tur.viewmodels.SearchResultViewModel;
 
 import java.util.*;
 
@@ -110,14 +111,15 @@ public class PeriodicalServiceImpl implements PeriodicalService {
     }
 
     @Override
-    public List<Periodical> search(String name, String category, String sortBy, boolean desc, int limit, int offset) throws ServiceException {
+    public SearchResultViewModel search(String name, String category, String sortBy, boolean desc, int limit, int offset) throws ServiceException {
+        SearchResultViewModel result = new SearchResultViewModel();
         SearchSettingsImpl searchSettings = new SearchSettingsImpl();
 
         if (name != null) {
             searchSettings.addSearchSpecification(new NameSpecification(name));
         }
 
-        if (category != null) {
+        if (category != null && !category.isEmpty()) {
             searchSettings.addSearchSpecification(new CategorySpecification(category));
         }
 
@@ -130,9 +132,27 @@ public class PeriodicalServiceImpl implements PeriodicalService {
 
         try {
             daoManager = daoManagerFactory.getDaoManager();
-            return daoManager.getPeriodicalDAO().find(searchSettings);
+            int amount = daoManager.getPeriodicalDAO().getAmount(searchSettings);
+            result.setAmount(amount);
+            List<Periodical> periodicals = daoManager.getPeriodicalDAO().find(searchSettings);
+            result.setPeriodicals(periodicals);
+            return result;
         } catch (DataAccessException e) {
             throw new ServiceException("Cannot search periodicals", e);
+        } finally {
+            close(daoManager);
+        }
+    }
+
+    @Override
+    public List<String> getAllCategories() throws ServiceException {
+        DAOManager daoManager = null;
+
+        try {
+            daoManager = daoManagerFactory.getDaoManager();
+            return  daoManager.getPeriodicalDAO().findAllCategories();
+        } catch (DataAccessException e) {
+            throw new ServiceException("Cannot get all categories", e);
         } finally {
             close(daoManager);
         }

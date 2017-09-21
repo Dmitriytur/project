@@ -48,16 +48,8 @@ public final class SearchSettingsImpl implements SearchSettings {
     public String buildQueryConditions() {
         StringBuilder queryBuilder = new StringBuilder();
 
-        if (searchSpecifications != null) {
-            for (int i = 0; i < searchSpecifications.size(); i++) {
-                if (i == 0) {
-                    queryBuilder.append(" WHERE ");
-                } else {
-                    queryBuilder.append(" AND ");
-                }
-                queryBuilder.append(searchSpecifications.get(i).getCondition());
-            }
-        }
+        queryBuilder.append(buildFilterPart());
+
 
         if (orderSpecification != null) {
             queryBuilder.append(" ORDER BY ");
@@ -73,6 +65,22 @@ public final class SearchSettingsImpl implements SearchSettings {
         }
         if (offset != 0) {
             queryBuilder.append(" OFFSET ").append(offset);
+        }
+        return queryBuilder.toString();
+    }
+
+    @Override
+    public String buildFilterPart() {
+        StringBuilder queryBuilder = new StringBuilder();
+        if (searchSpecifications != null) {
+            for (int i = 0; i < searchSpecifications.size(); i++) {
+                if (i == 0) {
+                    queryBuilder.append(" WHERE ");
+                } else {
+                    queryBuilder.append(" AND ");
+                }
+                queryBuilder.append(searchSpecifications.get(i).getCondition());
+            }
         }
         return queryBuilder.toString();
     }

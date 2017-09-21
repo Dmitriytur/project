@@ -5,6 +5,8 @@ import ua.nure.tur.exceptions.ServiceException;
 import ua.nure.tur.services.PeriodicalService;
 import ua.nure.tur.services.ServiceFactory;
 import ua.nure.tur.utils.Pages;
+import ua.nure.tur.viewmodels.PaginationViewModel;
+import ua.nure.tur.viewmodels.SearchResultViewModel;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -18,9 +20,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@WebServlet("/page/search")
+@WebServlet("/page/searchPartial")
 public class SearchController extends HttpServlet {
-
 
     private PeriodicalService periodicalService;
 
@@ -38,7 +39,6 @@ public class SearchController extends HttpServlet {
         allowedColumnsToSort = new HashSet<>();
         String parameter = getServletContext().getInitParameter("allowedColumnsToSort");
         allowedColumnsToSort.addAll(Arrays.asList(parameter.split(" ")));
-
     }
 
     @Override
@@ -49,19 +49,18 @@ public class SearchController extends HttpServlet {
         String order = req.getParameter("order");
         String limitParameter = req.getParameter("limit");
         String pageParameter = req.getParameter("page");
-        
 
 
-        if (sortBy != null && !allowedColumnsToSort.contains(sortBy)) {
-            resp.setStatus(400);
-            return;
+
+        if (!allowedColumnsToSort.contains(sortBy)) {
+            sortBy = null;
         }
 
-        boolean desc = order != null && "desc".equals(order);
+        boolean desc = order != null && !order.isEmpty() && "desc".equals(order);
 
         int limit = defaultLimit;
         int page = 1;
-        int offset = 0;
+        int offset;
 
         try {
             if (limitParameter != null) {
@@ -80,14 +79,15 @@ public class SearchController extends HttpServlet {
             return;
         }
 
-
         try {
-            List<Periodical> periodicals = periodicalService.search(name, category, sortBy, desc, limit, offset);
-            req.setAttribute("periodicalsList", periodicals);
-            req.getRequestDispatcher(Pages.PAGE_PREFIX + "search.jsp").forward(req, resp);
+            SearchResultViewModel result = periodicalService.search(name, category, sortBy, desc, limit, offset);
+            req.setAttribute("periodicalsList", result.getPeriodicals());
+            PaginationViewModel model = new PaginationViewModel(page, result.getAmount(), limit);
+
+            req.setAttribute("pagination",model);
+            req.getRequestDispatcher("/WEB-INF/partials/search_result.jsp").forward(req, resp);
         } catch (ServiceException e) {
             resp.setStatus(500);
         }
-
     }
 }

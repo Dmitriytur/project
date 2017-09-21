@@ -3,6 +3,10 @@
 	height: 50px;
 }
 
+.v-space-small{
+	height: 10px;
+}
+
 .img-preview{
 	height: 240px!important;
 	margin-top: 12px;
@@ -62,4 +66,9 @@ a.thumbnail:hover {
 
 .prod-descr{
 	margin: 20px 0 20px 0;
+}
+
+.filter-col{
+    padding-left:10px;
+    padding-right:10px;
 }

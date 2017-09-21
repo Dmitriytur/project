@@ -1,6 +1,7 @@
 package ua.nure.tur.db.dao;
 
 import ua.nure.tur.db.SearchSettings;
+import ua.nure.tur.db.SearchSettingsImpl;
 import ua.nure.tur.entities.Periodical;
 import ua.nure.tur.exceptions.DataAccessException;
 
@@ -12,5 +13,7 @@ public interface PeriodicalDAO {
 
     List<Periodical> find(SearchSettings searchSettings) throws DataAccessException;
 
-    List<Integer> findAllCategories() throws DataAccessException;
+    List<String> findAllCategories() throws DataAccessException;
+
+    int getAmount(SearchSettingsImpl searchSettings) throws DataAccessException;
 }
