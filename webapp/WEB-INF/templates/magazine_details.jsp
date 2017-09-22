@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="/WEB-INF/ratingstars.tld" prefix="m" %>
 <c:set var="title" value="Magazine details"/>
 <c:set var="pageStyle" value="/css/details.css"/>
@@ -36,14 +37,14 @@
                 </div>
                 <div class="panel-body">
                     <h4>Price: $${model.periodical.price} per edition</h4>
-                    <form class="form-inline" action="/page/subscribe">
+                    <form class="form-inline" action="/page/subscribe" id="subscribeForm">
                         <div class="form-group">
                             <label class="filter-col" >Period (months):</label>
-                            <input name="period" type="number" min="1" max="12" step="1" class="form-control" value="1">
+                            <input name="period" type="number" min="1" max="12" step="1" class="form-control" value="1"/>
                         </div>
-                        <input type="hidden" name="periodicalId" value="${model.periodical.id}">
-                        <button type="submit" class="btn btn-success"></i>Subscribe</button>
-                    </from>
+                        <input type="hidden" name="periodicalId" value="${model.periodical.id}"/>
+                        <button type="button" id="subscribeBtn" class="btn btn-success"></i>Subscribe</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -67,7 +68,7 @@
                     <div class="col-xs-6 col-md-6 text-center">
 
                         <div class="rating-stars big-stars">
-                            <h1>${model.periodical.rating}</h1>
+                            <h1><fmt:formatNumber type = "number" minFractionDigits="1" maxFractionDigits = "1" value = "${model.periodical.rating}" /></h1>
                             <m:ratingStars rating="${model.periodical.rating}"/>
                         </div>
                         <div>
@@ -95,7 +96,7 @@
         					</div>
         					<div class="pull-left" style="width:180px;">
         						<div class="progress" style="height:9px; margin:8px 0;">
-        						  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: ${model.reviewStatisticPercents[5]}%">
+        						  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: ${model.reviewStatisticPercents[4]}%">
         							<span class="sr-only">80% Complete (danger)</span>
         						  </div>
         						</div>
@@ -166,15 +167,16 @@
 
             <div class="row" id="post-review-box" style="display:none;">
                 <div class="col-md-12">
-                    <form accept-charset="UTF-8" action="" method="post">
-                        <input id="ratings-hidden" name="rating" type="hidden">
+                    <form accept-charset="UTF-8" action="/page/review" method="post" id="reviewForm">
+                        <input id="ratings-hidden" name="score" type="hidden">
+                        <input type="hidden" name="periodicalId" value="${model.periodical.id}"/>
                         <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
 
                         <div class="text-right">
                             <div class="stars starrr" data-rating="0"></div>
                             <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
                             <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                            <button class="btn btn-success btn-lg" type="submit">Save</button>
+                            <button class="btn btn-success btn-lg" type="button" id="reviewBtn">Save</button>
                         </div>
                     </form>
                 </div>

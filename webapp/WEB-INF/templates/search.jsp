@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <label class="filter-col" style="margin-right:0;" for="pref-orderby">Order by:</label>
                     <select id="sortBy"  class="form-control">
-                        <option value="rating">Rating</option>
+                        <option value="summary_rating">Rating</option>
                         <option value="price">Price</option>
                         <option value="name">Name</option>
                     </select>

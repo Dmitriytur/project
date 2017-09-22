@@ -16,6 +16,8 @@ public class Periodical extends Entity {
 
     private double rating;
 
+    private int summaryRating;
+
     private String category;
 
     public String getName() {
@@ -74,6 +76,14 @@ public class Periodical extends Entity {
         this.category = category;
     }
 
+    public int getSummaryRating() {
+        return summaryRating;
+    }
+
+    public void setSummaryRating(int summaryRating) {
+        this.summaryRating = summaryRating;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -105,4 +115,6 @@ public class Periodical extends Entity {
         result = 31 * result + (category != null ? category.hashCode() : 0);
         return result;
     }
+
+
 }

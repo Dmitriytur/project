@@ -12,7 +12,7 @@
 
     <context-param>
         <param-name>allowedColumnsToSort</param-name>
-        <param-value>rating price name</param-value>
+        <param-value>summary_rating price name</param-value>
     </context-param>
 
     <context-param>
@@ -56,12 +56,12 @@
 
         <init-param>
             <param-name>authorizedAccess</param-name>
-            <param-value>profile subscribe</param-value>
+            <param-value>profile subscribe review</param-value>
         </init-param>
 
         <init-param>
             <param-name>adminAccess</param-name>
-            <param-value></param-value>
+            <param-value>admin</param-value>
         </init-param>
     </filter>
 

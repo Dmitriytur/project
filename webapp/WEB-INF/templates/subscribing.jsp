@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="/WEB-INF/ratingstars.tld" prefix="m" %>
 <c:set var="title" value="Subscribing"/>
 <%@ include file="/WEB-INF/fragments/top.jspf" %>
@@ -43,7 +44,7 @@
                        ${periodical.periodicity} times per month
                    </c:if></li>
                 <li class="list-group-item"><h3>Period (months): ${period}</h3></li>
-               <li class="list-group-item"><h3>Total: $${periodical.price * period * periodical.periodicity}</h3></li>
+               <li class="list-group-item"><h3>Total: $<fmt:formatNumber type = "number" maxFractionDigits = "2" value = "${periodical.price * period * periodical.periodicity}" /></h3></li>
 
                <div class="v-space-small"></div>
 

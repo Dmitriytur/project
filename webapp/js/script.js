@@ -125,7 +125,7 @@ $("#btnPassword").click(function(event) {
 
             },
             success: function(response) {
-            
+
                 $("#successMessage p").text(response.responseText);
                 $("#successMessage").css('display','block');
                 $("#errorMessage").css('display','none');
@@ -134,6 +134,12 @@ $("#btnPassword").click(function(event) {
         });
     }
 
+});
 
+$("#subscribeBtn").click(function(event) {
+    $("#subscribeForm").submit();
+});
 
+$("#reviewBtn").click(function(event) {
+    $("#reviewForm").submit();
 });

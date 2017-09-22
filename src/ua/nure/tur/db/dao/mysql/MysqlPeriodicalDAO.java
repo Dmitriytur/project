@@ -22,6 +22,9 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
 
     private static final String COUNT = "select count(*) from periodicals";
 
+    private static final String UPDATE_PERIODICAL = "update periodicals set name=?, description=?, " +
+            "price=?, periodicity=?, rating=?, summary_rating=?, category=? where id=?";
+
     private Connection connection;
 
     public MysqlPeriodicalDAO(Connection connection) {
@@ -91,7 +94,7 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
                 categories.add(resultSet.getString("name"));
             }
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
             //TODO log
             throw new DataAccessException("Cannot get all categories", e);
         } finally {
@@ -125,6 +128,31 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
         return 0;
     }
 
+    @Override
+    public void update(Periodical periodical) {
+        PreparedStatement statement = null;
+
+        try {
+            statement = connection.prepareStatement(UPDATE_PERIODICAL);
+            prepareStatement(statement, periodical);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void prepareStatement(PreparedStatement statement, Periodical periodical) throws SQLException {
+        int i = 1;
+        statement.setString(i++, periodical.getName());
+        statement.setString(i++, periodical.getDescription());
+        statement.setDouble(i++, periodical.getPrice());
+        statement.setInt(i++, periodical.getPeriodicity());
+        statement.setDouble(i++, periodical.getRating());
+        statement.setInt(i++, periodical.getSummaryRating());
+        statement.setString(i++, periodical.getCategory());
+        statement.setLong(i, periodical.getId());
+    }
+
 
     private Periodical extractPeriodical(ResultSet resultSet) throws SQLException {
         Periodical periodical = new Periodical();
@@ -135,6 +163,7 @@ public class MysqlPeriodicalDAO implements PeriodicalDAO {
         periodical.setPeriodicity(resultSet.getInt("periodicity"));
         periodical.setImages(resultSet.getInt("images"));
         periodical.setRating(resultSet.getDouble("rating"));
+        periodical.setSummaryRating(resultSet.getInt("summary_rating"));
         periodical.setCategory(resultSet.getString("category"));
         return periodical;
     }

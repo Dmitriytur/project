@@ -62,7 +62,7 @@ public class PeriodicalServiceImpl implements PeriodicalService {
         specifications.add(categorySpecification);
         SearchSettingsImpl searchSettings = new SearchSettingsImpl();
         searchSettings.setSearchSpecifications(specifications);
-        searchSettings.setOrderSpecification("rating");
+        searchSettings.setOrderSpecification("summary_rating");
         searchSettings.setDesc(true);
         searchSettings.setLimit(limit);
 

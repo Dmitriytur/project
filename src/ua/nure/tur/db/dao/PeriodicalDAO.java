@@ -16,4 +16,6 @@ public interface PeriodicalDAO {
     List<String> findAllCategories() throws DataAccessException;
 
     int getAmount(SearchSettingsImpl searchSettings) throws DataAccessException;
+
+    void update(Periodical periodical);
 }

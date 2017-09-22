@@ -8,4 +8,8 @@ import java.util.List;
 public interface ReviewDAO {
 
     List<Review> findForPeriodical(Long id) throws DataAccessException;
+
+    void create(Review review) throws DataAccessException;
+
+    int getAmountForPeriodical(long periodicalId);
 }
